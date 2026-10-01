@@ -1,0 +1,42 @@
+{
+  "section": {
+    "kicker": "Experience / Selected chapters",
+    "title": "Work that compounds.",
+    "description": "A career shaped by thoughtful teams, ambitious products, and a consistent focus on making complex things feel simple."
+  },
+  "roles": [
+    {
+      "role": "Staff Frontend Engineer",
+      "company": "Northstar Labs",
+      "years": "2022 — Present",
+      "type": "Full-time internship → Staff role",
+      "duration": "3 years 8 months",
+      "certificate": "Staff Engineering Certificate",
+      "certificateImage": "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=1200&q=85",
+      "description": "Leading product engineering across design systems, performance, and high-quality customer-facing experiences.",
+      "summary": "Owned the frontend platform, mentored a team of six engineers, and partnered with product leadership to turn a complex analytics suite into a clear, dependable workspace."
+    },
+    {
+      "role": "Senior Software Engineer",
+      "company": "Goodline Studio",
+      "years": "2020 — 2022",
+      "type": "Software engineering internship",
+      "duration": "2 years 4 months",
+      "certificate": "Professional Excellence Certificate",
+      "certificateImage": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=85",
+      "description": "Shipped durable web platforms with small, cross-functional teams and a strong bias toward clarity.",
+      "summary": "Built customer-facing web experiences from discovery through launch, established reusable UI patterns, and helped the team improve its delivery practices."
+    },
+    {
+      "role": "Frontend Engineer",
+      "company": "Independent",
+      "years": "2018 — 2020",
+      "type": "Independent contract",
+      "duration": "1 year 11 months",
+      "certificate": "Frontend Development Certificate",
+      "certificateImage": "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1200&q=85",
+      "description": "Partnered with founders and product teams to turn early ideas into useful, polished products.",
+      "summary": "Delivered focused prototypes and production interfaces for early-stage teams, translating ambiguous ideas into useful products people could understand quickly."
+    }
+  ]
+}

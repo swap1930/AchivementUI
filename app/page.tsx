@@ -3,6 +3,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
+import activitiesData from "@/data/activities.json";
+import contactData from "@/data/contact.json";
+import eventsData from "@/data/events.json";
+import experienceData from "@/data/experience.json";
+import projectData from "@/data/projects.json";
+import tabData from "@/data/tabs.json";
 import {
   ArrowLeft,
   ArrowRight,
@@ -29,110 +35,7 @@ import {
   X,
 } from "lucide-react";
 
-const projectImages = [
-  "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-  "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
-  "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
-];
-
-const projects = [
-  {
-    id: "signal",
-    name: "Signal Dashboard",
-    eyebrow: "Product intelligence",
-    description:
-      "A calm, data-rich workspace for product teams to turn customer signals into confident decisions.",
-    images: projectImages,
-    tech: ["Next.js", "TypeScript", "Postgres"],
-    github: "https://github.com/",
-    live: "https://vercel.com/",
-    metrics: [
-      ["01", "10k+", "active users"],
-      ["02", "42%", "faster reporting"],
-      ["03", "4.9/5", "customer rating"],
-    ],
-  },
-  {
-    id: "northstar",
-    name: "Northstar Commerce",
-    eyebrow: "E-commerce platform",
-    description:
-      "A focused commerce system that keeps catalog, inventory, and fulfillment teams in sync.",
-    images: [projectImages[1], projectImages[2], projectImages[0]],
-    tech: ["React", "Node.js", "Stripe"],
-    github: "https://github.com/",
-    live: "https://vercel.com/",
-    metrics: [
-      ["01", "2.4x", "conversion lift"],
-      ["02", "80ms", "edge response"],
-      ["03", "24/7", "observability"],
-    ],
-  },
-  {
-    id: "atlas",
-    name: "Atlas Mobile",
-    eyebrow: "Team project · 2024",
-    description:
-      "A pocket-sized operating system for distributed teams to align, plan, and ship better work.",
-    images: [projectImages[2], projectImages[0], projectImages[1]],
-    tech: ["Expo", "GraphQL", "Figma"],
-    github: "https://github.com/",
-    live: "https://vercel.com/",
-    metrics: [
-      ["01", "36%", "less context switching"],
-      ["02", "18k", "weekly sessions"],
-      ["03", "12", "team pilots"],
-    ],
-  },
-  {
-    id: "relay",
-    name: "Relay Workspace",
-    eyebrow: "Collaboration platform",
-    description:
-      "A focused workspace for customer-facing teams to share context, decisions, and momentum.",
-    images: [projectImages[0], projectImages[2], projectImages[1]],
-    tech: ["Next.js", "Prisma", "Figma"],
-    github: "https://github.com/",
-    live: "https://vercel.com/",
-    metrics: [
-      ["01", "31%", "faster handoffs"],
-      ["02", "9.2k", "weekly users"],
-      ["03", "4.8/5", "team rating"],
-    ],
-  },
-  {
-    id: "pulse",
-    name: "Pulse Analytics",
-    eyebrow: "Realtime insights",
-    description:
-      "Live event streams and dashboards that help growth teams spot trends the moment they happen.",
-    images: [projectImages[1], projectImages[0], projectImages[2]],
-    tech: ["Next.js", "TypeScript", "Redis"],
-    github: "https://github.com/",
-    live: "https://vercel.com/",
-    metrics: [
-      ["01", "120ms", "event latency"],
-      ["02", "3.1M", "events per day"],
-      ["03", "99.9%", "uptime"],
-    ],
-  },
-  {
-    id: "canvas",
-    name: "Canvas Studio",
-    eyebrow: "Creative tooling",
-    description:
-      "A browser-based design canvas with multiplayer editing, version history, and export pipelines.",
-    images: [projectImages[2], projectImages[1], projectImages[0]],
-    tech: ["React", "WebSockets", "Figma"],
-    github: "https://github.com/",
-    live: "https://vercel.com/",
-    metrics: [
-      ["01", "60fps", "canvas rendering"],
-      ["02", "5.6k", "monthly creators"],
-      ["03", "28%", "faster exports"],
-    ],
-  },
-];
+const projects = projectData.projects;
 
 function GithubIcon() {
   return (
@@ -155,64 +58,18 @@ function CertificateButton({ title, image }: { title: string; image: string }) {
   );
 }
 
-const tabs = [
-  { id: "personal", label: "Personal Projects", icon: CircleUserRound },
-  { id: "team", label: "Team Projects", icon: Users },
-  { id: "experience", label: "Experience", icon: BriefcaseBusiness },
-  { id: "events", label: "Events Participated", icon: CalendarDays },
-  { id: "extra", label: "Extra-Curricular", icon: Network },
-];
-
-const activities = [
-  {
-    title: "Design systems workshop",
-    place: "Design Guild · 2024",
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Hackathon weekend",
-    place: "Build night · 2023",
-    image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Mentorship circle",
-    place: "Community · 2023",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Product offsite",
-    place: "Studio team · 2022",
-    image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    title: "Open source sprint",
-    place: "Community · 2022",
-    image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=75&crop=entropy",
-  },
-  {
-    title: "Campus tech talk",
-    place: "University · 2021",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=75&crop=entropy",
-  },
-  {
-    title: "UX research day",
-    place: "Design Guild · 2021",
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=75&crop=entropy",
-  },
-  {
-    title: "Volunteer coding club",
-    place: "Local school · 2020",
-    image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=75&crop=entropy",
-  },
-];
+const tabIcons = {
+  personal: CircleUserRound,
+  team: Users,
+  experience: BriefcaseBusiness,
+  events: CalendarDays,
+  extra: Network,
+};
+const tabs = tabData.map(({ id, label, icon }) => ({
+  id,
+  label,
+  icon: tabIcons[id as keyof typeof tabIcons],
+}));
 
 function GlassButton({
   label,
@@ -337,8 +194,11 @@ function ProjectsView({
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("All");
   const [page, setPage] = useState(1);
+  const copy = team ? projectData.views.team : projectData.views.personal;
   const allItems = team
-    ? [projects[2], projects[1], projects[0], projects[5], projects[3]]
+    ? projectData.teamProjectIds.flatMap((id) =>
+        projects.filter((project) => project.id === id),
+      )
     : projects;
   const filters = [
     "All",
@@ -361,16 +221,12 @@ function ProjectsView({
     <section className="view-section">
       <div className="section-heading">
         <div>
-          <p className="section-kicker">Selected work / 2022 — 2025</p>
-          <h1>{team ? "Built together." : "Built with intention."}</h1>
-          <p className="section-description">
-            {team
-              ? "Collaborative products, shipped with thoughtful teams and ambitious partners."
-              : "Digital products for people who care about clarity, craft, and the details between the lines."}
-          </p>
+          <p className="section-kicker">{copy.kicker}</p>
+          <h1>{copy.title}</h1>
+          <p className="section-description">{copy.description}</p>
         </div>
         <span className="availability">
-          <span /> Available for select work
+          <span /> {projectData.views.availabilityLabel}
         </span>
       </div>
       <div className="project-tools">
@@ -382,13 +238,13 @@ function ProjectsView({
               setQuery(event.target.value);
               setPage(1);
             }}
-            placeholder="Search projects"
+            placeholder={projectData.views.searchPlaceholder}
             aria-label="Search projects"
           />
         </label>
         <div className="filter-row">
           <SlidersHorizontal />
-          <span>Filter</span>
+          <span>{projectData.views.filterLabel}</span>
           {filters.map((item) => (
             <button
               key={item}
@@ -414,7 +270,7 @@ function ProjectsView({
           ))}
         </div>
       ) : (
-        <div className="empty-projects">No projects match that search.</div>
+        <div className="empty-projects">{projectData.views.emptyState}</div>
       )}
       {pageCount > 1 && (
         <Pagination page={page} pageCount={pageCount} onChange={setPage} />
@@ -480,38 +336,7 @@ function Pagination({
 }
 
 function EventsView({ onImage }: { onImage: (image: string) => void }) {
-  const events = [
-    [
-      "Vercel Ship 2024",
-      "Oct 18, 2024 · 10:00 AM",
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=85",
-    ],
-    [
-      "React Summit",
-      "Jun 12, 2024 · 09:30 AM",
-      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=900&q=85",
-    ],
-    [
-      "Product Camp",
-      "Mar 02, 2023 · 02:00 PM",
-      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=900&q=85",
-    ],
-    [
-      "Next.js Conf",
-      "Oct 25, 2023 · 11:00 AM",
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80&crop=entropy",
-    ],
-    [
-      "JSWorld Meetup",
-      "Aug 14, 2023 · 06:30 PM",
-      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=900&q=80&crop=entropy",
-    ],
-    [
-      "Design Systems Day",
-      "Nov 09, 2022 · 01:00 PM",
-      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=900&q=80&crop=entropy",
-    ],
-  ];
+  const events = eventsData.items;
   const [page, setPage] = useState(1);
   const pageSize = 3;
   const pageCount = Math.ceil(events.length / pageSize);
@@ -520,28 +345,27 @@ function EventsView({ onImage }: { onImage: (image: string) => void }) {
     <section className="view-section">
       <div className="section-heading">
         <div>
-          <p className="section-kicker">Events / Certificates</p>
-          <h1>Keep learning.</h1>
+          <p className="section-kicker">{eventsData.section.kicker}</p>
+          <h1>{eventsData.section.title}</h1>
           <p className="section-description">
-            A small archive of rooms, conversations, and communities that shaped
-            the work.
+            {eventsData.section.description}
           </p>
         </div>
       </div>
       <div className="events-list">
-        {visible.map(([name, date, image]) => (
+        {visible.map((event) => (
           <button
             className="event-card"
-            key={name}
-            onClick={() => onImage(image)}
+            key={event.name}
+            onClick={() => onImage(event.image)}
           >
-            <img src={image} alt="" />
+            <img src={event.image} alt="" />
             <div>
               <span className="event-index">
-                0{events.findIndex((event) => event[0] === name) + 1}
+                0{events.findIndex((item) => item.name === event.name) + 1}
               </span>
-              <h3>{name}</h3>
-              <p>{date}</p>
+              <h3>{event.name}</h3>
+              <p>{event.date}</p>
             </div>
             <ExternalLink />
           </button>
@@ -552,7 +376,7 @@ function EventsView({ onImage }: { onImage: (image: string) => void }) {
           page={page}
           pageCount={pageCount}
           onChange={setPage}
-          label="Event pages"
+          label={eventsData.paginationLabel}
         />
       )}
     </section>
@@ -560,6 +384,7 @@ function EventsView({ onImage }: { onImage: (image: string) => void }) {
 }
 
 function ExtraView() {
+  const activities = activitiesData.items;
   const [page, setPage] = useState(1);
   const pageSize = 4;
   const pageCount = Math.ceil(activities.length / pageSize);
@@ -568,11 +393,10 @@ function ExtraView() {
     <section className="view-section">
       <div className="section-heading">
         <div>
-          <p className="section-kicker">Outside the viewport</p>
-          <h1>People, not pixels.</h1>
+          <p className="section-kicker">{activitiesData.section.kicker}</p>
+          <h1>{activitiesData.section.title}</h1>
           <p className="section-description">
-            The work behind the work: mentoring, facilitating, and making space
-            for good ideas.
+            {activitiesData.section.description}
           </p>
         </div>
       </div>
@@ -592,7 +416,7 @@ function ExtraView() {
           page={page}
           pageCount={pageCount}
           onChange={setPage}
-          label="Activity pages"
+          label={activitiesData.paginationLabel}
         />
       )}
     </section>
@@ -600,59 +424,15 @@ function ExtraView() {
 }
 
 function ExperienceView() {
-  const roles = [
-    {
-      role: "Staff Frontend Engineer",
-      company: "Northstar Labs",
-      years: "2022 — Present",
-      type: "Full-time internship → Staff role",
-      duration: "3 years 8 months",
-      certificate: "Staff Engineering Certificate",
-      certificateImage:
-        "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=1200&q=85",
-      description:
-        "Leading product engineering across design systems, performance, and high-quality customer-facing experiences.",
-      summary:
-        "Owned the frontend platform, mentored a team of six engineers, and partnered with product leadership to turn a complex analytics suite into a clear, dependable workspace.",
-    },
-    {
-      role: "Senior Software Engineer",
-      company: "Goodline Studio",
-      years: "2020 — 2022",
-      type: "Software engineering internship",
-      duration: "2 years 4 months",
-      certificate: "Professional Excellence Certificate",
-      certificateImage:
-        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=85",
-      description:
-        "Shipped durable web platforms with small, cross-functional teams and a strong bias toward clarity.",
-      summary:
-        "Built customer-facing web experiences from discovery through launch, established reusable UI patterns, and helped the team improve its delivery practices.",
-    },
-    {
-      role: "Frontend Engineer",
-      company: "Independent",
-      years: "2018 — 2020",
-      type: "Independent contract",
-      duration: "1 year 11 months",
-      certificate: "Frontend Development Certificate",
-      certificateImage:
-        "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1200&q=85",
-      description:
-        "Partnered with founders and product teams to turn early ideas into useful, polished products.",
-      summary:
-        "Delivered focused prototypes and production interfaces for early-stage teams, translating ambiguous ideas into useful products people could understand quickly.",
-    },
-  ];
+  const roles = experienceData.roles;
   return (
     <section className="view-section">
       <div className="section-heading">
         <div>
-          <p className="section-kicker">Experience / Selected chapters</p>
-          <h1>Work that compounds.</h1>
+          <p className="section-kicker">{experienceData.section.kicker}</p>
+          <h1>{experienceData.section.title}</h1>
           <p className="section-description">
-            A career shaped by thoughtful teams, ambitious products, and a
-            consistent focus on making complex things feel simple.
+            {experienceData.section.description}
           </p>
         </div>
       </div>
@@ -707,48 +487,45 @@ function ContactView() {
     <section className="view-section contact-view">
       <div className="section-heading">
         <div>
-          <p className="section-kicker">Contact / Start a conversation</p>
-          <h1>Let&apos;s make something clear.</h1>
+          <p className="section-kicker">{contactData.section.kicker}</p>
+          <h1>{contactData.section.title}</h1>
           <p className="section-description">
-            Tell me what you&apos;re building, where it feels stuck, and what a
-            good outcome looks like.
+            {contactData.section.description}
           </p>
         </div>
       </div>
       <form className="contact-form" onSubmit={submit}>
-        <label>
-          Name
-          <input name="name" required />
-        </label>
-        <label>
-          Email
-          <input name="email" type="email" required />
-        </label>
-        <label className="full-field">
-          Subject
-          <input name="subject" required />
-        </label>
-        <label className="full-field">
-          Message
-          <textarea name="message" rows={7} required />
-        </label>
+        {contactData.fields.map((field) => (
+          <label
+            key={field.name}
+            className={field.fullWidth ? "full-field" : undefined}
+          >
+            {field.label}
+            {field.type === "textarea" ? (
+              <textarea
+                name={field.name}
+                rows={field.rows}
+                required={field.required}
+              />
+            ) : (
+              <input
+                name={field.name}
+                type={field.type === "email" ? "email" : "text"}
+                required={field.required}
+              />
+            )}
+          </label>
+        ))}
         <div className="form-footer">
           <button
             className="primary-button"
             type="submit"
             disabled={status === "sending"}
           >
-            {status === "sent"
-              ? "Message queued"
-              : status === "sending"
-                ? "Sending…"
-                : "Send Message"}{" "}
-            <Send />
+            {contactData.submitLabels[status]} <Send />
           </button>
           {status === "sent" && (
-            <span className="form-success">
-              Thanks — I&apos;ll be in touch soon.
-            </span>
+            <span className="form-success">{contactData.successMessage}</span>
           )}
         </div>
       </form>
@@ -772,7 +549,7 @@ function DetailView({
       <div className="detail-hero">
         <div>
           <p className="section-kicker">
-            Case study / 0{projects.indexOf(project) + 1}
+            {`${projectData.detail.caseStudyLabel} / 0${projects.indexOf(project) + 1}`}
           </p>
           <h1>{project.name}</h1>
           <p className="detail-description">{project.description}</p>
@@ -785,7 +562,7 @@ function DetailView({
           </div>
           <div className="detail-actions">
             <a href="#contact" className="primary-button">
-              Let&apos;s work together <ArrowRight />
+              {projectData.detail.collaborationCta} <ArrowRight />
             </a>
             <GlassButton label="View source on GitHub">
               <GithubIcon />
@@ -830,11 +607,8 @@ function DetailView({
       <div className="detail-note">
         <Sparkles />
         <div>
-          <h3>Designed for the last 10%</h3>
-          <p>
-            From system architecture to the final interaction, I stay close to
-            the details that make a product feel inevitable.
-          </p>
+          <h3>{projectData.detail.noteTitle}</h3>
+          <p>{projectData.detail.noteDescription}</p>
         </div>
       </div>
     </section>
@@ -919,10 +693,13 @@ export default function Page() {
         </div>
         <button
           className="mobile-menu"
+          type="button"
           aria-label={
             isMobileSidebarOpen ? "Close navigation" : "Open navigation"
           }
-          onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
+          aria-expanded={isMobileSidebarOpen}
+          aria-controls="portfolio-sidebar"
+          onClick={() => setIsMobileSidebarOpen((open) => !open)}
         >
           {isMobileSidebarOpen ? <X /> : <Menu />}
         </button>
@@ -936,6 +713,7 @@ export default function Page() {
       )}
       <div className="app-shell" id="top">
         <aside
+          id="portfolio-sidebar"
           className={`sidebar ${isMobileSidebarOpen ? "mobile-open" : ""}`}
         >
           <div>
@@ -1010,11 +788,13 @@ export default function Page() {
             </button>
           </div>
         </aside>
-        <div className="mobile-tabs">
+        <nav className="mobile-tabs" aria-label="Portfolio sections">
           {tabs.map(({ id, label }) => (
             <button
               key={id}
+              type="button"
               className={activeTab === id ? "active" : ""}
+              aria-current={activeTab === id ? "page" : undefined}
               onClick={() => {
                 setActiveTab(id);
                 setSelectedProject(null);
@@ -1023,7 +803,7 @@ export default function Page() {
               {label}
             </button>
           ))}
-        </div>
+        </nav>
         <section
           key={selectedProject?.id ?? activeTab}
           className="content-panel"

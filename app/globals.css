@@ -134,8 +134,8 @@ button {
 .grid-background {
   background-size: 48px 48px;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   mask-image: linear-gradient(to bottom, black, transparent 92%);
 }
 .light .grid-background {
@@ -151,6 +151,7 @@ button {
   align-items: center;
   gap: 18px;
   border-bottom: 1px solid var(--line);
+  background: var(--bg-2);
   position: relative;
   z-index: 4;
   backdrop-filter: blur(20px);
@@ -1164,6 +1165,10 @@ h1 {
    }
    .topbar {
      padding: 0 20px;
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
    }
    .header-status,
    .header-link span {
@@ -1173,6 +1178,7 @@ h1 {
      height: auto;
      min-height: calc(100vh - 112px);
      padding: 18px 20px 24px;
+     margin-top: 72px;
      flex-direction: column;
    }
    .sidebar {
@@ -1233,12 +1239,19 @@ h1 {
    }
    .top-actions {
      display: flex;
+     gap: 6px;
+   }
+   .top-actions .header-link,
+   .top-actions .contact-button {
+     display: none;
    }
    .mobile-menu {
      display: grid;
+     margin-left: 0;
    }
    .app-shell {
      padding: 16px 16px 16px;
+     margin-top: 64px;
    }
    .section-heading {
      margin: 12px 0 24px;
@@ -1295,8 +1308,15 @@ h1 {
      transform: translateX(0);
      visibility: visible;
    }
+   .sidebar {
+     display: flex;
+     background: var(--bg-2);
+     backdrop-filter: none;
+     box-shadow: 12px 0 30px rgba(0, 0, 0, 0.12);
+   }
    .mobile-tabs {
      display: flex;
+     flex-direction: row;
      gap: 7px;
      overflow-x: auto;
      order: -1;

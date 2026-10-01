@@ -1,0 +1,7 @@
+[
+  { "id": "personal", "label": "Personal Projects", "icon": "personal" },
+  { "id": "team", "label": "Team Projects", "icon": "team" },
+  { "id": "experience", "label": "Experience", "icon": "experience" },
+  { "id": "events", "label": "Events Participated", "icon": "events" },
+  { "id": "extra", "label": "Extra-Curricular", "icon": "extra" }
+]

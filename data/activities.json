@@ -1,0 +1,50 @@
+{
+  "section": {
+    "kicker": "Outside the viewport",
+    "title": "People, not pixels.",
+    "description": "The work behind the work: mentoring, facilitating, and making space for good ideas."
+  },
+  "paginationLabel": "Activity pages",
+  "items": [
+    {
+      "title": "Design systems workshop",
+      "place": "Design Guild · 2024",
+      "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "title": "Hackathon weekend",
+      "place": "Build night · 2023",
+      "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "title": "Mentorship circle",
+      "place": "Community · 2023",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "title": "Product offsite",
+      "place": "Studio team · 2022",
+      "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "title": "Open source sprint",
+      "place": "Community · 2022",
+      "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=75&crop=entropy"
+    },
+    {
+      "title": "Campus tech talk",
+      "place": "University · 2021",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=75&crop=entropy"
+    },
+    {
+      "title": "UX research day",
+      "place": "Design Guild · 2021",
+      "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=75&crop=entropy"
+    },
+    {
+      "title": "Volunteer coding club",
+      "place": "Local school · 2020",
+      "image": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=75&crop=entropy"
+    }
+  ]
+}

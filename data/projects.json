@@ -1,0 +1,141 @@
+{
+  "teamProjectIds": ["atlas", "northstar", "signal", "canvas", "relay"],
+  "views": {
+    "personal": {
+      "kicker": "Selected work / 2022 — 2025",
+      "title": "Built with intention.",
+      "description": "Digital products for people who care about clarity, craft, and the details between the lines."
+    },
+    "team": {
+      "kicker": "Selected work / 2022 — 2025",
+      "title": "Built together.",
+      "description": "Collaborative products, shipped with thoughtful teams and ambitious partners."
+    },
+    "searchPlaceholder": "Search projects",
+    "filterLabel": "Filter",
+    "availabilityLabel": "Available for select work",
+    "emptyState": "No projects match that search."
+  },
+  "detail": {
+    "caseStudyLabel": "Case study",
+    "collaborationCta": "Let's work together",
+    "noteTitle": "Designed for the last 10%",
+    "noteDescription": "From system architecture to the final interaction, I stay close to the details that make a product feel inevitable."
+  },
+  "projects": [
+    {
+      "id": "signal",
+      "name": "Signal Dashboard",
+      "eyebrow": "Product intelligence",
+      "description": "A calm, data-rich workspace for product teams to turn customer signals into confident decisions.",
+      "images": [
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": ["Next.js", "TypeScript", "Postgres"],
+      "github": "https://github.com/",
+      "live": "https://vercel.com/",
+      "metrics": [
+        ["01", "10k+", "active users"],
+        ["02", "42%", "faster reporting"],
+        ["03", "4.9/5", "customer rating"]
+      ]
+    },
+    {
+      "id": "northstar",
+      "name": "Northstar Commerce",
+      "eyebrow": "E-commerce platform",
+      "description": "A focused commerce system that keeps catalog, inventory, and fulfillment teams in sync.",
+      "images": [
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": ["React", "Node.js", "Stripe"],
+      "github": "https://github.com/",
+      "live": "https://vercel.com/",
+      "metrics": [
+        ["01", "2.4x", "conversion lift"],
+        ["02", "80ms", "edge response"],
+        ["03", "24/7", "observability"]
+      ]
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas Mobile",
+      "eyebrow": "Team project · 2024",
+      "description": "A pocket-sized operating system for distributed teams to align, plan, and ship better work.",
+      "images": [
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": ["Expo", "GraphQL", "Figma"],
+      "github": "https://github.com/",
+      "live": "https://vercel.com/",
+      "metrics": [
+        ["01", "36%", "less context switching"],
+        ["02", "18k", "weekly sessions"],
+        ["03", "12", "team pilots"]
+      ]
+    },
+    {
+      "id": "relay",
+      "name": "Relay Workspace",
+      "eyebrow": "Collaboration platform",
+      "description": "A focused workspace for customer-facing teams to share context, decisions, and momentum.",
+      "images": [
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": ["Next.js", "Prisma", "Figma"],
+      "github": "https://github.com/",
+      "live": "https://vercel.com/",
+      "metrics": [
+        ["01", "31%", "faster handoffs"],
+        ["02", "9.2k", "weekly users"],
+        ["03", "4.8/5", "team rating"]
+      ]
+    },
+    {
+      "id": "pulse",
+      "name": "Pulse Analytics",
+      "eyebrow": "Realtime insights",
+      "description": "Live event streams and dashboards that help growth teams spot trends the moment they happen.",
+      "images": [
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": ["Next.js", "TypeScript", "Redis"],
+      "github": "https://github.com/",
+      "live": "https://vercel.com/",
+      "metrics": [
+        ["01", "120ms", "event latency"],
+        ["02", "3.1M", "events per day"],
+        ["03", "99.9%", "uptime"]
+      ]
+    },
+    {
+      "id": "canvas",
+      "name": "Canvas Studio",
+      "eyebrow": "Creative tooling",
+      "description": "A browser-based design canvas with multiplayer editing, version history, and export pipelines.",
+      "images": [
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": ["React", "WebSockets", "Figma"],
+      "github": "https://github.com/",
+      "live": "https://vercel.com/",
+      "metrics": [
+        ["01", "60fps", "canvas rendering"],
+        ["02", "5.6k", "monthly creators"],
+        ["03", "28%", "faster exports"]
+      ]
+    }
+  ]
+}

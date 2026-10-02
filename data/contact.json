@@ -1,8 +1,18 @@
 {
+  "profile": {
+    "name": "Swapnil Dudhane",
+    "title": "Full Stack & AI/ML Developer",
+    "summary": "Full Stack and AI/ML Developer with hands-on experience building scalable web applications and machine learning and deep learning models. Skilled across frontend, backend, and database layers, with a focus on data science and LLM-based solutions. A strong problem-solver and quick learner with leadership experience organizing technical events.",
+    "email": "swapnildudhane1930@gmail.com",
+    "phone": "+91 8390821930",
+    "github": "https://github.com/swap1930",
+    "linkedin": "https://www.linkedin.com/",
+    "instagram": "https://www.instagram.com/"
+  },
   "section": {
     "kicker": "Contact / Start a conversation",
-    "title": "Let's make something clear.",
-    "description": "Tell me what you're building, where it feels stuck, and what a good outcome looks like."
+    "title": "Let's build something useful.",
+    "description": "Get in touch about full stack development, AI/ML, or a project collaboration."
   },
   "fields": [
     { "name": "name", "label": "Name", "type": "text", "required": true },

@@ -1,15 +1,42 @@
 {
-  "teamProjectIds": ["atlas", "northstar", "signal", "canvas", "relay"],
+  "personalProjectIds": [
+    "dataflow",
+    "medicycle",
+    "jarvis-2",
+    "marketmatrix",
+    "collabml",
+    "portfolio"
+  ],
+  "miniProjectIds": [
+    "jarvis-ai",
+    "comment-cleanser",
+    "osl",
+    "mad"
+  ],
+  "teamProjectIds": [
+    "innohack",
+    "dipex",
+    "smart-agri",
+    "city-pulse",
+    "breach-before-it",
+    "hackmatrix",
+    "neuday-ai"
+  ],
   "views": {
     "personal": {
-      "kicker": "Selected work / 2022 — 2025",
+      "kicker": "Personal projects",
       "title": "Built with intention.",
-      "description": "Digital products for people who care about clarity, craft, and the details between the lines."
+      "description": "Personal projects exploring useful ideas through software."
+    },
+    "mini": {
+      "kicker": "Mini projects",
+      "title": "Small ideas, shipped.",
+      "description": "Smaller experiments and focused tools."
     },
     "team": {
-      "kicker": "Selected work / 2022 — 2025",
+      "kicker": "Team projects",
       "title": "Built together.",
-      "description": "Collaborative products, shipped with thoughtful teams and ambitious partners."
+      "description": "Collaborative projects and hackathon work."
     },
     "searchPlaceholder": "Search projects",
     "filterLabel": "Filter",
@@ -17,125 +44,282 @@
     "emptyState": "No projects match that search."
   },
   "detail": {
-    "caseStudyLabel": "Case study",
-    "collaborationCta": "Let's work together",
-    "noteTitle": "Designed for the last 10%",
-    "noteDescription": "From system architecture to the final interaction, I stay close to the details that make a product feel inevitable."
+    "caseStudyLabel": "Project details",
+    "noteTitle": "Project information",
+    "noteDescription": "Project summaries are based on the provided resume, and repository links are included where a public match was verified."
   },
   "projects": [
     {
-      "id": "signal",
-      "name": "Signal Dashboard",
-      "eyebrow": "Product intelligence",
-      "description": "A calm, data-rich workspace for product teams to turn customer signals into confident decisions.",
+      "id": "dataflow",
+      "category": "personal",
+      "name": "DataFlow",
+      "eyebrow": "Automated file analysis & AI insights",
+      "description": "A FastAPI-based data analysis system that turns uploaded files into interactive dashboards and pivot tables, with an AI chatbot for asking questions about processed datasets.",
       "images": [
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
       ],
-      "tech": ["Next.js", "TypeScript", "Postgres"],
-      "github": "https://github.com/",
-      "live": "https://vercel.com/",
-      "metrics": [
-        ["01", "10k+", "active users"],
-        ["02", "42%", "faster reporting"],
-        ["03", "4.9/5", "customer rating"]
-      ]
+      "tech": ["FastAPI", "Cohere API", "Pandas", "NumPy", "scikit-learn"],
+      "github": "https://github.com/swap1930/DataFlow",
+      "live": null,
+      "metrics": [["GitHub", "0", "stars"], ["GitHub", "0", "forks"], ["Stack", "TypeScript", "primary language"]]
     },
     {
-      "id": "northstar",
-      "name": "Northstar Commerce",
-      "eyebrow": "E-commerce platform",
-      "description": "A focused commerce system that keeps catalog, inventory, and fulfillment teams in sync.",
+      "id": "medicycle",
+      "category": "personal",
+      "name": "MediCycle",
+      "eyebrow": "Medicine donation & accessibility platform",
+      "description": "A platform for donating, listing, and finding affordable or free medicines, with an admin dashboard for managing medicines, requests, and organizational records.",
       "images": [
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
       ],
-      "tech": ["React", "Node.js", "Stripe"],
-      "github": "https://github.com/",
-      "live": "https://vercel.com/",
-      "metrics": [
-        ["01", "2.4x", "conversion lift"],
-        ["02", "80ms", "edge response"],
-        ["03", "24/7", "observability"]
-      ]
+      "tech": ["HTML", "CSS", "JavaScript", "Flask"],
+      "github": "https://github.com/swap1930/medicycle-project",
+      "live": null,
+      "metrics": [["GitHub", "0", "stars"], ["GitHub", "0", "forks"], ["Stack", "HTML", "primary language"]]
     },
     {
-      "id": "atlas",
-      "name": "Atlas Mobile",
-      "eyebrow": "Team project · 2024",
-      "description": "A pocket-sized operating system for distributed teams to align, plan, and ship better work.",
+      "id": "jarvis-2",
+      "category": "personal",
+      "name": "Jarvis 2.0",
+      "eyebrow": "Ollama-powered AI assistant",
+      "description": "A context-aware assistant powered by Gemma 2B and Mistral 7B through Ollama, combining retrieval-augmented generation with video and web scraping for automated information extraction.",
       "images": [
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
       ],
-      "tech": ["Expo", "GraphQL", "Figma"],
-      "github": "https://github.com/",
-      "live": "https://vercel.com/",
-      "metrics": [
-        ["01", "36%", "less context switching"],
-        ["02", "18k", "weekly sessions"],
-        ["03", "12", "team pilots"]
-      ]
+      "tech": ["Ollama", "Gemma 2B", "Mistral 7B", "RAG", "LangChain"],
+      "github": null,
+      "live": null,
+      "metrics": []
     },
     {
-      "id": "relay",
-      "name": "Relay Workspace",
-      "eyebrow": "Collaboration platform",
-      "description": "A focused workspace for customer-facing teams to share context, decisions, and momentum.",
+      "id": "marketmatrix",
+      "category": "personal",
+      "name": "MarketMatrix",
+      "eyebrow": "Livestock & crop market analysis",
+      "description": "A real-time market analysis tool for livestock and crop markets, with predictive insights, interactive charts, live market data, and automated trend evaluation.",
       "images": [
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
       ],
-      "tech": ["Next.js", "Prisma", "Figma"],
-      "github": "https://github.com/",
-      "live": "https://vercel.com/",
-      "metrics": [
-        ["01", "31%", "faster handoffs"],
-        ["02", "9.2k", "weekly users"],
-        ["03", "4.8/5", "team rating"]
-      ]
+      "tech": ["Python", "Streamlit", "yfinance"],
+      "github": null,
+      "live": null,
+      "metrics": []
     },
     {
-      "id": "pulse",
-      "name": "Pulse Analytics",
-      "eyebrow": "Realtime insights",
-      "description": "Live event streams and dashboards that help growth teams spot trends the moment they happen.",
+      "id": "collabml",
+      "category": "personal",
+      "name": "CollabML",
+      "eyebrow": "Personal project",
+      "description": "Project details have not been provided yet.",
+      "images": [
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": [],
+      "github": null,
+      "live": null,
+      "metrics": []
+    },
+    {
+      "id": "portfolio",
+      "category": "personal",
+      "name": "Portfolio",
+      "eyebrow": "Personal project",
+      "description": "A responsive portfolio website showcasing skills, projects, and professional experience, with interactive components and animations.",
       "images": [
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
       ],
-      "tech": ["Next.js", "TypeScript", "Redis"],
-      "github": "https://github.com/",
-      "live": "https://vercel.com/",
-      "metrics": [
-        ["01", "120ms", "event latency"],
-        ["02", "3.1M", "events per day"],
-        ["03", "99.9%", "uptime"]
-      ]
+      "tech": ["React", "Vite", "Tailwind CSS", "Framer Motion"],
+      "github": "https://github.com/swap1930/Portfolio",
+      "live": null,
+      "metrics": [["GitHub", "1", "star"], ["GitHub", "0", "forks"], ["Stack", "JavaScript", "primary language"]]
     },
     {
-      "id": "canvas",
-      "name": "Canvas Studio",
-      "eyebrow": "Creative tooling",
-      "description": "A browser-based design canvas with multiplayer editing, version history, and export pipelines.",
+      "id": "jarvis-ai",
+      "category": "mini",
+      "name": "Jarvis AI",
+      "eyebrow": "Mini project",
+      "description": "A voice-controlled Python assistant for conversational AI, email, music playback, web searches, and time queries.",
+      "images": [
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": ["Python", "SpeechRecognition", "GPT API"],
+      "github": "https://github.com/swap1930/JarvisAI",
+      "live": null,
+      "metrics": [["GitHub", "1", "star"], ["GitHub", "0", "forks"], ["Stack", "Python", "primary language"]]
+    },
+    {
+      "id": "comment-cleanser",
+      "category": "mini",
+      "name": "Comment Cleanser",
+      "eyebrow": "Mini project",
+      "description": "A Streamlit machine-learning app that classifies comments as hate speech, offensive, or clean, and can learn from user feedback.",
+      "images": [
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": ["Python", "Streamlit", "Logistic regression"],
+      "github": "https://github.com/swap1930/comment_cleanser",
+      "live": null,
+      "metrics": [["GitHub", "0", "stars"], ["GitHub", "0", "forks"], ["Stack", "Python", "primary language"]]
+    },
+    {
+      "id": "osl",
+      "category": "mini",
+      "name": "OSL",
+      "eyebrow": "Mini project",
+      "description": "A machine-learning system for operational SLA and machine-failure prediction, with real-time monitoring and explainable results.",
+      "images": [
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": ["Python", "Streamlit", "Random Forest", "SHAP"],
+      "github": "https://github.com/swap1930/OSL_Project",
+      "live": null,
+      "metrics": [["GitHub", "0", "stars"], ["GitHub", "0", "forks"], ["Stack", "Python", "primary language"]]
+    },
+    {
+      "id": "mad",
+      "category": "mini",
+      "name": "MAD",
+      "eyebrow": "Mini project",
+      "description": "Project details have not been provided yet.",
+      "images": [
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": [],
+      "github": null,
+      "live": null,
+      "metrics": []
+    },
+    {
+      "id": "innohack",
+      "category": "team",
+      "name": "InnoHack",
+      "eyebrow": "Team project",
+      "description": "Project details have not been provided yet.",
+      "images": [
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": [],
+      "github": null,
+      "live": null,
+      "metrics": []
+    },
+    {
+      "id": "dipex",
+      "category": "team",
+      "name": "Dipex",
+      "eyebrow": "Team project",
+      "description": "Project details have not been provided yet.",
       "images": [
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
       ],
-      "tech": ["React", "WebSockets", "Figma"],
-      "github": "https://github.com/",
-      "live": "https://vercel.com/",
-      "metrics": [
-        ["01", "60fps", "canvas rendering"],
-        ["02", "5.6k", "monthly creators"],
-        ["03", "28%", "faster exports"]
-      ]
+      "tech": [],
+      "github": null,
+      "live": null,
+      "metrics": []
+    },
+    {
+      "id": "smart-agri",
+      "category": "team",
+      "name": "Smart Agri",
+      "eyebrow": "Team project",
+      "description": "A digital agriculture platform designed to give farmers access to practical information and services.",
+      "images": [
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/swap1930/Smart-Agri",
+      "live": null,
+      "metrics": [["GitHub", "1", "star"], ["GitHub", "0", "forks"], ["Stack", "HTML", "primary language"]]
+    },
+    {
+      "id": "city-pulse",
+      "category": "team",
+      "name": "City Pulse",
+      "eyebrow": "Team project",
+      "description": "Project details have not been provided yet.",
+      "images": [
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": [],
+      "github": null,
+      "live": null,
+      "metrics": []
+    },
+    {
+      "id": "breach-before-it",
+      "category": "team",
+      "name": "Breach Before It",
+      "eyebrow": "Team project",
+      "description": "Project details have not been provided yet.",
+      "images": [
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": [],
+      "github": null,
+      "live": null,
+      "metrics": []
+    },
+    {
+      "id": "hackmatrix",
+      "category": "team",
+      "name": "HackMatrix",
+      "eyebrow": "Team project",
+      "description": "A PCCOE hackathon project built with a React and TypeScript frontend.",
+      "images": [
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": ["TypeScript", "React", "Tailwind CSS"],
+      "github": "https://github.com/swap1930/HackMatrix",
+      "live": null,
+      "metrics": [["GitHub", "0", "stars"], ["GitHub", "0", "forks"], ["Stack", "TypeScript", "primary language"]]
+    },
+    {
+      "id": "neuday-ai",
+      "category": "team",
+      "name": "Neuday AI",
+      "eyebrow": "Team project",
+      "description": "Project details have not been provided yet.",
+      "images": [
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "tech": [],
+      "github": null,
+      "live": null,
+      "metrics": []
     }
   ]
 }

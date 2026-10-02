@@ -1,40 +1,20 @@
 {
   "section": {
-    "kicker": "Events / Certificates",
-    "title": "Keep learning.",
-    "description": "A small archive of rooms, conversations, and communities that shaped the work."
+    "kicker": "Events / Leadership",
+    "title": "Organizing and giving back.",
+    "description": "Technical event leadership and volunteering listed in my resume."
   },
   "paginationLabel": "Event pages",
   "items": [
     {
-      "name": "Vercel Ship 2024",
-      "date": "Oct 18, 2024 · 10:00 AM",
+      "name": "Technova GPK",
+      "detail": "Team Head · Project Presentation Organization",
       "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=85"
     },
     {
-      "name": "React Summit",
-      "date": "Jun 12, 2024 · 09:30 AM",
-      "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=900&q=85"
-    },
-    {
-      "name": "Product Camp",
-      "date": "Mar 02, 2023 · 02:00 PM",
+      "name": "Codebrains",
+      "detail": "Volunteer · Technova college event team",
       "image": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=900&q=85"
-    },
-    {
-      "name": "Next.js Conf",
-      "date": "Oct 25, 2023 · 11:00 AM",
-      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80&crop=entropy"
-    },
-    {
-      "name": "JSWorld Meetup",
-      "date": "Aug 14, 2023 · 06:30 PM",
-      "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=900&q=80&crop=entropy"
-    },
-    {
-      "name": "Design Systems Day",
-      "date": "Nov 09, 2022 · 01:00 PM",
-      "image": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=900&q=80&crop=entropy"
     }
   ]
 }

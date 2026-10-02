@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import activitiesData from "@/data/activities.json";
 import contactData from "@/data/contact.json";
@@ -11,7 +11,6 @@ import projectData from "@/data/projects.json";
 import tabData from "@/data/tabs.json";
 import {
   ArrowLeft,
-  ArrowRight,
   BriefcaseBusiness,
   CalendarDays,
   Check,
@@ -26,6 +25,7 @@ import {
   Moon,
   Network,
   PanelTop,
+  Phone,
   Search,
   Send,
   SlidersHorizontal,
@@ -37,6 +37,19 @@ import {
 
 const projects = projectData.projects;
 
+function getProjectPosition(project: (typeof projects)[number]) {
+  const categoryIds =
+    project.category === "personal"
+      ? projectData.personalProjectIds
+      : project.category === "mini"
+        ? projectData.miniProjectIds
+        : projectData.teamProjectIds;
+  return {
+    index: categoryIds.indexOf(project.id) + 1,
+    count: categoryIds.length,
+  };
+}
+
 function GithubIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -45,25 +58,14 @@ function GithubIcon() {
   );
 }
 
-function CertificateButton({ title, image }: { title: string; image: string }) {
-  return (
-    <button
-      type="button"
-      className="certificate-button"
-      onClick={() => window.open(image, "_blank", "noopener,noreferrer")}
-    >
-      <span>{title}</span>
-      <ExternalLink />
-    </button>
-  );
-}
-
 const tabIcons = {
   personal: CircleUserRound,
+  mini: Code2,
   team: Users,
   experience: BriefcaseBusiness,
   events: CalendarDays,
   extra: Network,
+  skills: Code2,
 };
 const tabs = tabData.map(({ id, label, icon }) => ({
   id,
@@ -100,8 +102,10 @@ function ProjectCard({
   onOpen: () => void;
 }) {
   const [imageIndex, setImageIndex] = useState(0);
+  const position = getProjectPosition(project);
 
   useEffect(() => {
+    if (project.images.length < 2) return;
     const interval = window.setInterval(
       () => setImageIndex((current) => (current + 1) % project.images.length),
       4400,
@@ -116,28 +120,33 @@ function ProjectCard({
         <div className="cover-gradient" />
         <div className="cover-controls">
           <span className="project-number">
-            0{projects.indexOf(project) + 1} / 0{projects.length}
+            {String(position.index).padStart(2, "0")} /{" "}
+            {String(position.count).padStart(2, "0")}
           </span>
-          <div className="slide-dots" aria-label="Project screenshots">
-            {project.images.map((_, index) => (
-              <button
-                key={index}
-                aria-label={`Show screenshot ${index + 1}`}
-                className={index === imageIndex ? "active" : ""}
-                onClick={() => setImageIndex(index)}
-              />
-            ))}
-          </div>
+          {project.images.length > 1 && (
+            <div className="slide-dots" aria-label="Project screenshots">
+              {project.images.map((_, index) => (
+                <button
+                  key={index}
+                  aria-label={`Show screenshot ${index + 1}`}
+                  className={index === imageIndex ? "active" : ""}
+                  onClick={() => setImageIndex(index)}
+                />
+              ))}
+            </div>
+          )}
         </div>
-        <button
-          className="cover-arrow"
-          aria-label="Next screenshot"
-          onClick={() =>
-            setImageIndex((imageIndex + 1) % project.images.length)
-          }
-        >
-          <ChevronRight />
-        </button>
+        {project.images.length > 1 && (
+          <button
+            className="cover-arrow"
+            aria-label="Next screenshot"
+            onClick={() =>
+              setImageIndex((imageIndex + 1) % project.images.length)
+            }
+          >
+            <ChevronRight />
+          </button>
+        )}
       </div>
       <div className="project-body">
         <div className="eyebrow">
@@ -155,22 +164,26 @@ function ProjectCard({
             ))}
           </div>
           <div className="card-actions">
-            <a
-              className="project-link"
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <GithubIcon /> GitHub
-            </a>
-            <a
-              className="project-link"
-              href={project.live}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <ExternalLink /> Live
-            </a>
+            {project.github && (
+              <a
+                className="project-link"
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GithubIcon /> GitHub
+              </a>
+            )}
+            {project.live && (
+              <a
+                className="project-link"
+                href={project.live}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <ExternalLink /> Live
+              </a>
+            )}
             <GlassButton
               label={`View ${project.name} details`}
               onClick={onOpen}
@@ -185,21 +198,25 @@ function ProjectCard({
 }
 
 function ProjectsView({
-  team = false,
+  category = "personal",
   onOpen,
 }: {
-  team?: boolean;
+  category?: "personal" | "mini" | "team";
   onOpen: (project: (typeof projects)[number]) => void;
 }) {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("All");
   const [page, setPage] = useState(1);
-  const copy = team ? projectData.views.team : projectData.views.personal;
-  const allItems = team
-    ? projectData.teamProjectIds.flatMap((id) =>
-        projects.filter((project) => project.id === id),
-      )
-    : projects;
+  const copy = projectData.views[category];
+  const projectIds =
+    category === "team"
+      ? projectData.teamProjectIds
+      : category === "mini"
+        ? projectData.miniProjectIds
+        : projectData.personalProjectIds;
+  const allItems = projectIds.flatMap((id) =>
+    projects.filter((project) => project.id === id),
+  );
   const filters = [
     "All",
     ...Array.from(new Set(allItems.flatMap((project) => project.tech))).slice(
@@ -212,7 +229,10 @@ function ProjectsView({
       `${project.name} ${project.description} ${project.eyebrow}`
         .toLowerCase()
         .includes(query.toLowerCase());
-    return matchesQuery && (filter === "All" || project.tech.includes(filter));
+    return (
+      matchesQuery &&
+      (filter === "All" || project.tech.some((tech) => tech === filter))
+    );
   });
   const pageSize = 4;
   const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
@@ -365,7 +385,7 @@ function EventsView({ onImage }: { onImage: (image: string) => void }) {
                 0{events.findIndex((item) => item.name === event.name) + 1}
               </span>
               <h3>{event.name}</h3>
-              <p>{event.date}</p>
+              <p>{event.detail}</p>
             </div>
             <ExternalLink />
           </button>
@@ -383,12 +403,8 @@ function EventsView({ onImage }: { onImage: (image: string) => void }) {
   );
 }
 
-function ExtraView() {
-  const activities = activitiesData.items;
-  const [page, setPage] = useState(1);
-  const pageSize = 4;
-  const pageCount = Math.ceil(activities.length / pageSize);
-  const visible = activities.slice((page - 1) * pageSize, page * pageSize);
+function SkillsView() {
+  const groups = activitiesData.groups;
   return (
     <section className="view-section">
       <div className="section-heading">
@@ -400,30 +416,53 @@ function ExtraView() {
           </p>
         </div>
       </div>
-      <div className="gallery-grid">
-        {visible.map((activity) => (
-          <figure className="gallery-item" key={activity.title}>
-            <img src={activity.image} alt={activity.title} />
-            <figcaption>
-              <strong>{activity.title}</strong>
-              <span>{activity.place}</span>
-            </figcaption>
-          </figure>
+      <div className="skill-groups">
+        {groups.map((group) => (
+          <section className="skill-group" key={group.category}>
+            <h2>{group.category}</h2>
+            <div className="skill-chips">
+              {group.items.map((skill) => (
+                <span className="tech-chip" key={skill}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </section>
         ))}
       </div>
-      {pageCount > 1 && (
-        <Pagination
-          page={page}
-          pageCount={pageCount}
-          onChange={setPage}
-          label={activitiesData.paginationLabel}
-        />
-      )}
     </section>
   );
 }
 
-function ExperienceView() {
+function ExtraCurricularView() {
+  const activities = activitiesData.extracurricular;
+  return (
+    <section className="view-section">
+      <div className="section-heading">
+        <div>
+          <p className="section-kicker">Outside the classroom</p>
+          <h1>Extra-Curricular</h1>
+          <p className="section-description">
+            Event leadership and volunteering from my resume.
+          </p>
+        </div>
+      </div>
+      <div className="gallery-grid">
+        {activities.map((activity) => (
+          <figure className="gallery-item" key={activity.title}>
+            <img src={activity.image} alt="" />
+            <figcaption>
+              <strong>{activity.title}</strong>
+              <span>{activity.detail}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ExperienceView({ onImage }: { onImage: (image: string) => void }) {
   const roles = experienceData.roles;
   return (
     <section className="view-section">
@@ -436,39 +475,67 @@ function ExperienceView() {
           </p>
         </div>
       </div>
-      <div className="experience-list">
-        {roles.map((item) => (
-          <article className="experience-card" key={item.role}>
-            <div className="experience-years">{item.years}</div>
-            <div className="experience-content">
-              <p className="section-kicker">{item.company}</p>
-              <h3>{item.role}</h3>
-              <div className="experience-meta">
-                <span>{item.type}</span>
-                <span>{item.duration}</span>
+      <section className="resume-section">
+        <h2>Experience</h2>
+        <div className="experience-list">
+          {roles.map((item) => (
+            <article className="experience-card" key={item.role}>
+              <span className="experience-years">{item.years}</span>
+              <div className="experience-content">
+                <div className="experience-heading">
+                  <div>
+                    <p className="section-kicker">{item.company}</p>
+                    <h3>{item.role}</h3>
+                  </div>
+                  <button
+                    className="experience-image-button"
+                    type="button"
+                    aria-label={`Open ${item.role} certificate`}
+                    title="Open certificate"
+                    onClick={() => onImage(item.certificateImage)}
+                  >
+                    <ExternalLink />
+                  </button>
+                </div>
+                <div className="experience-meta">
+                  <span>{item.type}</span>
+                  <span>{item.duration}</span>
+                </div>
+                <p>{item.description}</p>
+                <p className="experience-summary">
+                  <strong>Summary</strong>
+                  {item.summary}
+                </p>
               </div>
-              <p>{item.description}</p>
-              <p className="experience-summary">
-                <strong>Summary</strong>
-                {item.summary}
-              </p>
-              <button
-                className="certificate-button"
-                onClick={() =>
-                  window.open(
-                    item.certificateImage,
-                    "_blank",
-                    "noopener,noreferrer",
-                  )
-                }
-              >
-                <span>{item.certificate}</span>
-                <ExternalLink />
-              </button>
-            </div>
-          </article>
-        ))}
-      </div>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="resume-section">
+        <h2>Education</h2>
+        <div className="education-grid">
+          {experienceData.education.map((item) => (
+            <article className="education-card" key={item.institution}>
+              <div className="experience-heading">
+                <div>
+                  <span className="experience-years">{item.years}</span>
+                  <h3>{item.institution}</h3>
+                </div>
+                <button
+                  className="experience-image-button"
+                  type="button"
+                  aria-label={`Open ${item.institution} certificate`}
+                  title="Open certificate"
+                  onClick={() => onImage(item.certificateImage)}
+                >
+                  <ExternalLink />
+                </button>
+              </div>
+              <p>{item.qualification}</p>
+            </article>
+          ))}
+        </div>
+      </section>
     </section>
   );
 }
@@ -493,6 +560,31 @@ function ContactView() {
             {contactData.section.description}
           </p>
         </div>
+      </div>
+      <div className="profile-contact">
+        <a
+          className="profile-contact-item"
+          href={`mailto:${contactData.profile.email}`}
+        >
+          <HiOutlineMail />
+          <span>{contactData.profile.email}</span>
+        </a>
+        <a
+          className="profile-contact-item"
+          href={`tel:${contactData.profile.phone.replaceAll(" ", "")}`}
+        >
+          <Phone />
+          <span>{contactData.profile.phone}</span>
+        </a>
+        <a
+          className="profile-contact-item"
+          href={contactData.profile.github}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <GithubIcon />
+          <span>GitHub profile</span>
+        </a>
       </div>
       <form className="contact-form" onSubmit={submit}>
         {contactData.fields.map((field) => (
@@ -541,6 +633,7 @@ function DetailView({
   onBack: () => void;
 }) {
   const [imageIndex, setImageIndex] = useState(0);
+  const position = getProjectPosition(project);
   return (
     <section className="detail-view">
       <button className="back-button" onClick={onBack}>
@@ -549,7 +642,7 @@ function DetailView({
       <div className="detail-hero">
         <div>
           <p className="section-kicker">
-            {`${projectData.detail.caseStudyLabel} / 0${projects.indexOf(project) + 1}`}
+            {`${projectData.detail.caseStudyLabel} / ${String(position.index).padStart(2, "0")}`}
           </p>
           <h1>{project.name}</h1>
           <p className="detail-description">{project.description}</p>
@@ -561,12 +654,16 @@ function DetailView({
             ))}
           </div>
           <div className="detail-actions">
-            <a href="#contact" className="primary-button">
-              {projectData.detail.collaborationCta} <ArrowRight />
-            </a>
-            <GlassButton label="View source on GitHub">
-              <GithubIcon />
-            </GlassButton>
+            {project.github && (
+              <a
+                href={project.github}
+                className="primary-button"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View source on GitHub <ExternalLink />
+              </a>
+            )}
           </div>
         </div>
         <div className="detail-image">
@@ -574,36 +671,42 @@ function DetailView({
             src={project.images[imageIndex]}
             alt={`${project.name} case study`}
           />
-          <button
-            onClick={() =>
-              setImageIndex(
-                (imageIndex + project.images.length - 1) %
-                  project.images.length,
-              )
-            }
-            aria-label="Previous image"
-          >
-            <ChevronLeft />
-          </button>
-          <button
-            onClick={() =>
-              setImageIndex((imageIndex + 1) % project.images.length)
-            }
-            aria-label="Next image"
-          >
-            <ChevronRight />
-          </button>
+          {project.images.length > 1 && (
+            <>
+              <button
+                onClick={() =>
+                  setImageIndex(
+                    (imageIndex + project.images.length - 1) %
+                      project.images.length,
+                  )
+                }
+                aria-label="Previous image"
+              >
+                <ChevronLeft />
+              </button>
+              <button
+                onClick={() =>
+                  setImageIndex((imageIndex + 1) % project.images.length)
+                }
+                aria-label="Next image"
+              >
+                <ChevronRight />
+              </button>
+            </>
+          )}
         </div>
       </div>
-      <div className="metrics-grid">
-        {project.metrics.map(([number, value, label]) => (
-          <div className="metric" key={number}>
-            <span>{number}</span>
-            <strong>{value}</strong>
-            <p>{label}</p>
-          </div>
-        ))}
-      </div>
+      {project.metrics.length > 0 && (
+        <div className="metrics-grid">
+          {project.metrics.map(([number, value, label]) => (
+            <div className="metric" key={`${number}-${label}`}>
+              <span>{number}</span>
+              <strong>{value}</strong>
+              <p>{label}</p>
+            </div>
+          ))}
+        </div>
+      )}
       <div className="detail-note">
         <Sparkles />
         <div>
@@ -652,12 +755,10 @@ export default function Page() {
           <span className="brand-mark">
             <Code2 />
           </span>
-          <span>
-            DEV<span>.PORTFOLIO</span>
-          </span>
+          <span>{contactData.profile.name}</span>
         </a>
         <div className="header-status">
-          <span className="pulse" /> Executive engineering
+          <span className="pulse" /> {contactData.profile.title}
         </div>
         <div className="top-actions">
           <button
@@ -667,7 +768,12 @@ export default function Page() {
           >
             {dark ? <Sun /> : <Moon />}
           </button>
-          <a className="header-link" href="https://github.com">
+          <a
+            className="header-link"
+            href={contactData.profile.github}
+            target="_blank"
+            rel="noreferrer"
+          >
             <GithubIcon />
             <span>GitHub</span>
           </a>
@@ -742,7 +848,7 @@ export default function Page() {
           <div className="sidebar-social">
             <div className="social-icons">
               <a
-                href="https://linkedin.com"
+                href={contactData.profile.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
@@ -751,7 +857,7 @@ export default function Page() {
                 <FaLinkedinIn />
               </a>
               <a
-                href="https://instagram.com"
+                href={contactData.profile.instagram}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
@@ -760,7 +866,7 @@ export default function Page() {
                 <FaInstagram />
               </a>
               <a
-                href="https://github.com"
+                href={contactData.profile.github}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
@@ -769,7 +875,7 @@ export default function Page() {
                 <FaGithub />
               </a>
               <a
-                href="mailto:hello@example.com"
+                href={`mailto:${contactData.profile.email}`}
                 aria-label="Email"
                 className="social-icon"
               >
@@ -817,20 +923,26 @@ export default function Page() {
           ) : activeTab === "personal" ? (
             <ProjectsView onOpen={setSelectedProject} />
           ) : activeTab === "team" ? (
-            <ProjectsView team onOpen={setSelectedProject} />
+            <ProjectsView category="team" onOpen={setSelectedProject} />
+          ) : activeTab === "mini" ? (
+            <ProjectsView category="mini" onOpen={setSelectedProject} />
           ) : activeTab === "experience" ? (
-            <ExperienceView />
+            <ExperienceView onImage={setLightbox} />
           ) : activeTab === "events" ? (
             <EventsView onImage={setLightbox} />
+          ) : activeTab === "extra" ? (
+            <ExtraCurricularView />
           ) : activeTab === "contact" ? (
             <ContactView />
           ) : (
-            <ExtraView />
+            <SkillsView />
           )}
         </section>
       </div>
       <footer className="bottom-bar">
-        <span>© 2025 Alex Vance</span>
+        <span>
+          © {new Date().getFullYear()} {contactData.profile.name}
+        </span>
         <span className="footer-line" />
         <span>Currently crafting thoughtful software</span>
       </footer>

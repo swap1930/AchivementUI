@@ -1,42 +1,39 @@
 {
   "section": {
-    "kicker": "Experience / Selected chapters",
-    "title": "Work that compounds.",
-    "description": "A career shaped by thoughtful teams, ambitious products, and a consistent focus on making complex things feel simple."
+    "kicker": "Experience / Education / Skills",
+    "title": "Learning by building.",
+    "description": "Full Stack and AI/ML developer with hands-on experience across web applications, machine learning, deep learning, data science, and LLM-based solutions."
   },
+  "education": [
+    {
+      "institution": "Pimpri Chinchwad College of Engineering, Pune",
+      "qualification": "Bachelor of Engineering in Computer Engineering (in progress)",
+      "years": "2023 — 2029",
+      "certificateImage": "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "institution": "Government Polytechnic, Kolhapur",
+      "qualification": "Diploma in Information Technology · 95.44%",
+      "years": "2023 — 2026",
+      "certificateImage": "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "institution": "Saraswati High School, Ichalkaranji",
+      "qualification": "Secondary School Certificate · 95%",
+      "years": "2022 — 2023",
+      "certificateImage": "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=1200&q=85"
+    }
+  ],
   "roles": [
     {
-      "role": "Staff Frontend Engineer",
-      "company": "Northstar Labs",
-      "years": "2022 — Present",
-      "type": "Full-time internship → Staff role",
-      "duration": "3 years 8 months",
-      "certificate": "Staff Engineering Certificate",
+      "role": "AI/ML & Web Development Intern",
+      "company": "NeuDayAI Pvt. Ltd., Pune",
+      "years": "6 months",
+      "type": "Internship",
+      "duration": "6 months",
       "certificateImage": "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=1200&q=85",
-      "description": "Leading product engineering across design systems, performance, and high-quality customer-facing experiences.",
-      "summary": "Owned the frontend platform, mentored a team of six engineers, and partnered with product leadership to turn a complex analytics suite into a clear, dependable workspace."
-    },
-    {
-      "role": "Senior Software Engineer",
-      "company": "Goodline Studio",
-      "years": "2020 — 2022",
-      "type": "Software engineering internship",
-      "duration": "2 years 4 months",
-      "certificate": "Professional Excellence Certificate",
-      "certificateImage": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=85",
-      "description": "Shipped durable web platforms with small, cross-functional teams and a strong bias toward clarity.",
-      "summary": "Built customer-facing web experiences from discovery through launch, established reusable UI patterns, and helped the team improve its delivery practices."
-    },
-    {
-      "role": "Frontend Engineer",
-      "company": "Independent",
-      "years": "2018 — 2020",
-      "type": "Independent contract",
-      "duration": "1 year 11 months",
-      "certificate": "Frontend Development Certificate",
-      "certificateImage": "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1200&q=85",
-      "description": "Partnered with founders and product teams to turn early ideas into useful, polished products.",
-      "summary": "Delivered focused prototypes and production interfaces for early-stage teams, translating ambiguous ideas into useful products people could understand quickly."
+      "description": "Contributed to AI/ML and web development projects during a six-month internship, gaining applied experience across the development lifecycle.",
+      "summary": "Worked across AI/ML and web development tasks, applying technical skills in a professional project environment."
     }
   ]
 }

@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import contactData from "@/data/contact.json";
 import "./globals.css";
 
 const inter = Inter({
@@ -10,9 +11,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Swapnil's Achivement",
-  description:
-    "Alex Vance — executive engineer crafting thoughtful digital products.",
+  title: `${contactData.profile.name} | Portfolio`,
+  description: contactData.profile.summary,
   generator: "v0.app",
   icons: {
     icon: [

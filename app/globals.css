@@ -1033,6 +1033,20 @@ h1 {
   border-radius: 15px;
   background: var(--glass);
 }
+.education-card {
+  transition: 0.25s ease;
+}
+.education-card:hover {
+  transform: translateX(5px);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.skill-group {
+  transition: 0.25s ease;
+}
+.skill-group:hover {
+  transform: translateX(5px);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
 .education-card h3 {
   margin: 10px 0 8px;
   font-size: 15px;

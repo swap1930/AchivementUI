@@ -638,7 +638,7 @@ function ContactView() {
     });
 
     try {
-      const response = await fetch("/", {
+      const response = await fetch("/__forms.html", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -697,9 +697,6 @@ function ContactView() {
         className="contact-form"
         name="contact"
         method="POST"
-        action="/"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
         onSubmit={submit}
       >
         <input type="hidden" name="form-name" value="contact" />
@@ -1086,19 +1083,6 @@ export default function Page() {
           )}
         </section>
       </div>
-      <form
-        name="contact"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        hidden
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        <input name="name" />
-        <input name="email" type="email" />
-        <input name="subject" />
-        <textarea name="message" />
-        <input name="bot-field" />
-      </form>
       <footer className="bottom-bar">
         <span>
           © {new Date().getFullYear()} {contactData.profile.name}

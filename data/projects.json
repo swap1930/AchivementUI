@@ -19,7 +19,6 @@
     "smart-agri",
     "city-pulse",
     "breach-before-it",
-    "hackmatrix",
     "neuday-ai"
   ],
   "views": {
@@ -54,15 +53,26 @@
       "category": "personal",
       "name": "DataFlow",
       "eyebrow": "Automated file analysis & AI insights",
+      "summary": "Analyze files with AI-powered dashboards.",
       "description": "A FastAPI-based data analysis system that turns uploaded files into interactive dashboards and pivot tables, with an AI chatbot for asking questions about processed datasets.",
+      "issuesResolved": [
+        "Reduces manual effort when exploring uploaded datasets.",
+        "Makes trends and summaries easier to find in large files.",
+        "Lets users ask questions about processed data in natural language."
+      ],
+      "advantages": [
+        "Combines file analysis, dashboards, and AI chat in one workflow.",
+        "Supports interactive dashboards and pivot-table exploration."
+      ],
       "images": [
-        "/projects/df1.png",
-        "/projects/df2.png",
-        "/projects/df3.png",
-        "/projects/df4.png",
-        "/projects/df5.png",
-        "/projects/df6.png",
-        "/projects/df7.png"
+        "/projects/Dataflow/project3.png",
+        "/projects/Dataflow/df1.png",
+        "/projects/Dataflow/df2.png",
+        "/projects/Dataflow/df3.png",
+        "/projects/Dataflow/df4.png",
+        "/projects/Dataflow/df5.png",
+        "/projects/Dataflow/df6.png",
+        "/projects/Dataflow/df7.png"
       ],
       "tech": ["FastAPI", "Cohere API", "Pandas", "NumPy", "scikit-learn"],
       "github": "https://github.com/swap1930/DataFlow",
@@ -74,13 +84,24 @@
       "category": "personal",
       "name": "MediCycle",
       "eyebrow": "Medicine donation & accessibility platform",
+      "summary": "Connect donated medicines with people in need.",
       "description": "A platform for donating, listing, and finding affordable or free medicines, with an admin dashboard for managing medicines, requests, and organizational records.",
+      "issuesResolved": [
+        "Provides a way to connect unused medicine with people who need it.",
+        "Helps users find affordable or free listed medicines.",
+        "Gives administrators tools to manage listings and requests."
+      ],
+      "advantages": [
+        "Brings medicine donations and requests into one platform.",
+        "Supports both community users and administrators."
+      ],
       "images": [
-        "/projects/med1.png",
-        "/projects/med2.png",
-        "/projects/med3.png",
-        "/projects/med4.png",
-        "/projects/med5.png"
+        "/projects/Marketmatrix/project2.jpg",
+        "/projects/Medicycle/med1.png",
+        "/projects/Medicycle/med2.png",
+        "/projects/Medicycle/med3.png",
+        "/projects/Medicycle/med4.png",
+        "/projects/Medicycle/med5.png"
       ],
       "tech": ["HTML", "CSS", "JavaScript", "Flask"],
       "github": "https://github.com/swap1930/medicycle-project",
@@ -92,12 +113,21 @@
       "category": "personal",
       "name": "Jarvis 2.0",
       "eyebrow": "Ollama-powered AI assistant",
+      "summary": "A context-aware assistant for research and automation.",
       "description": "A context-aware assistant powered by Gemma 2B and Mistral 7B through Ollama, combining retrieval-augmented generation with video and web scraping for automated information extraction.",
+      "issuesResolved": [
+        "Reduces manual effort collecting information from web pages and videos.",
+        "Keeps responses grounded in the current conversation context."
+      ],
+      "advantages": [
+        "Runs supported language models locally through Ollama.",
+        "Combines retrieval, scraping, and conversational assistance."
+      ],
       "images": [
-        "/projects/jv1.png",
-        "/projects/jv2.png",
-        "/projects/jv3.png",
-        "/projects/jv5.png"
+        "/projects/Jarvis2.0/jv1.png",
+        "/projects/Jarvis2.0/jv2.png",
+        "/projects/Jarvis2.0/jv3.png",
+        "/projects/Jarvis2.0/jv5.png"
       ],
       "tech": ["Ollama", "Gemma 2B", "Mistral 7B", "RAG", "LangChain"],
       "github": null,
@@ -109,15 +139,25 @@
       "category": "personal",
       "name": "MarketMatrix",
       "eyebrow": "Livestock & crop market analysis",
+      "summary": "Explore live crop and livestock market trends.",
       "description": "A real-time market analysis tool for livestock and crop markets, with predictive insights, interactive charts, live market data, and automated trend evaluation.",
+      "issuesResolved": [
+        "Makes market prices and trends easier to monitor in one place.",
+        "Helps users inspect changes across crop and livestock markets."
+      ],
+      "advantages": [
+        "Pairs current market information with interactive visualizations.",
+        "Offers trend analysis to support informed decisions."
+      ],
       "images": [
-        "/projects/mm1.png",
-        "/projects/mm2.png",
-        "/projects/mm3.png",
-        "/projects/mm4.png"
+        "/projects/Marketmatrix/project1.png",
+        "/projects/Marketmatrix/mm1.png",
+        "/projects/Marketmatrix/mm2.png",
+        "/projects/Marketmatrix/mm3.png",
+        "/projects/Marketmatrix/mm4.png"
       ],
       "tech": ["Python", "Streamlit", "yfinance"],
-      "github": null,
+      "github": "https://github.com/swap1930/StockMarket",
       "live": null,
       "metrics": []
     },
@@ -126,7 +166,10 @@
       "category": "personal",
       "name": "CollabML",
       "eyebrow": "Personal project",
+      "summary": "Project details coming soon.",
       "description": "Project details have not been provided yet.",
+      "issuesResolved": ["Project-specific details have not been provided yet."],
+      "advantages": ["Project-specific details have not been provided yet."],
       "images": [
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
@@ -142,11 +185,21 @@
       "category": "personal",
       "name": "Portfolio",
       "eyebrow": "Personal project",
+      "summary": "A responsive showcase of my work and skills.",
       "description": "A responsive portfolio website showcasing skills, projects, and professional experience, with interactive components and animations.",
+      "issuesResolved": [
+        "Presents project and career information in one navigable place.",
+        "Adapts the portfolio layout to different screen sizes."
+      ],
+      "advantages": [
+        "Makes projects, skills, and experience easy to explore.",
+        "Uses responsive layouts and interactive visual elements."
+      ],
       "images": [
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
+        "/projects/Portfolio/pro1.png",
+        "/projects/Portfolio/pro2.png",
+        "/projects/Portfolio/pro3.png",
+        "/projects/Portfolio/pro4.png"
       ],
       "tech": ["React", "Vite", "Tailwind CSS", "Framer Motion"],
       "github": "https://github.com/swap1930/Portfolio",
@@ -158,7 +211,16 @@
       "category": "mini",
       "name": "Jarvis AI",
       "eyebrow": "Mini project",
+      "summary": "A voice assistant for everyday tasks.",
       "description": "A voice-controlled Python assistant for conversational AI, email, music playback, web searches, and time queries.",
+      "issuesResolved": [
+        "Reduces the steps needed to perform common computer tasks.",
+        "Provides a voice-driven interface for searches and quick queries."
+      ],
+      "advantages": [
+        "Combines conversational responses with practical task shortcuts.",
+        "Supports hands-free interaction for common actions."
+      ],
       "images": [
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
@@ -174,7 +236,16 @@
       "category": "mini",
       "name": "Comment Cleanser",
       "eyebrow": "Mini project",
+      "summary": "Classify harmful comments and learn from feedback.",
       "description": "A Streamlit machine-learning app that classifies comments as hate speech, offensive, or clean, and can learn from user feedback.",
+      "issuesResolved": [
+        "Helps identify hate speech and offensive comments.",
+        "Provides a way to incorporate user feedback into classification."
+      ],
+      "advantages": [
+        "Separates comments into clear moderation categories.",
+        "Combines model predictions with a simple Streamlit interface."
+      ],
       "images": [
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
@@ -190,7 +261,16 @@
       "category": "mini",
       "name": "OSL",
       "eyebrow": "Mini project",
+      "summary": "Predict SLA risks and machine failures.",
       "description": "A machine-learning system for operational SLA and machine-failure prediction, with real-time monitoring and explainable results.",
+      "issuesResolved": [
+        "Highlights potential SLA risks before they become operational issues.",
+        "Flags machine-failure risks for earlier investigation."
+      ],
+      "advantages": [
+        "Combines monitoring with predictive alerts.",
+        "Uses SHAP to help explain model predictions."
+      ],
       "images": [
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
@@ -205,47 +285,75 @@
       "id": "mad",
       "category": "mini",
       "name": "MAD",
-      "eyebrow": "Mini project",
-      "description": "Project details have not been provided yet.",
+      "eyebrow": "Flutter finance planning app",
+      "summary": "Check financial-plan eligibility and find nearby banks.",
+      "description": "A personal finance app that evaluates eligibility for loans, credit cards, insurance, investments, savings, salary accounts, tax-saving plans, and asset purchases. It collects financial details, provides plan-specific recommendations, and helps users discover nearby banks.",
+      "issuesResolved": [
+        "Helps users understand eligibility across common financial products.",
+        "Reduces uncertainty when choosing a plan based on personal finances.",
+        "Helps users locate nearby banks for relevant plans."
+      ],
+      "advantages": [
+        "Offers plan-specific eligibility checks and recommendations.",
+        "Uses account and financial details to personalize the flow."
+      ],
       "images": [
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
       ],
-      "tech": [],
-      "github": null,
+      "tech": ["Flutter", "Dart", "Firebase Authentication", "Cloud Firestore", "MongoDB", "Geolocation"],
+      "github": "https://github.com/swap1930/MAD_SLA",
       "live": null,
       "metrics": []
     },
     {
       "id": "innohack",
       "category": "team",
-      "name": "InnoHack",
-      "eyebrow": "Team project",
-      "description": "Project details have not been provided yet.",
+      "name": "InnoHack 2.0",
+      "eyebrow": "AI-powered legal assistant",
+      "summary": "Explore legal documents and ask an AI lawyer.",
+      "description": "A legal AI platform featuring an AI lawyer chat assistant and tools for legal document handling and research, with a React-based web interface.",
+      "issuesResolved": [
+        "Makes legal information and document workflows easier to access.",
+        "Provides a conversational way to explore legal questions."
+      ],
+      "advantages": [
+        "Combines AI chat, document handling, and legal research features.",
+        "Offers a dedicated web interface for legal assistance."
+      ],
       "images": [
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
       ],
-      "tech": [],
-      "github": null,
+      "tech": ["React", "JavaScript", "Vite", "Tailwind CSS", "Firebase"],
+      "github": "https://github.com/swap1930/Innohack2.0",
       "live": null,
       "metrics": []
     },
     {
       "id": "dipex",
       "category": "team",
-      "name": "Dipex",
-      "eyebrow": "Team project",
-      "description": "Project details have not been provided yet.",
+      "name": "Dipex HackSense",
+      "eyebrow": "Network intrusion detection & event predictions",
+      "summary": "Detect network threats and predict attack techniques.",
+      "description": "A network threat-detection project that extracts live traffic-flow features for intrusion classification and event prediction. Its dashboard accepts JSON, log, and text files and presents predicted attack techniques with confidence and priority information.",
+      "issuesResolved": [
+        "Turns network events and uploaded logs into structured predictions.",
+        "Helps analysts review likely attack techniques and their priorities."
+      ],
+      "advantages": [
+        "Combines traffic-feature analysis with event prediction.",
+        "Presents confidence and priority alongside predicted techniques."
+      ],
       "images": [
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
       ],
-      "tech": [],
-      "github": null,
+      "tech": ["Python", "Scapy", "CIC-IDS", "XGBoost", "LSTM", "React", "TypeScript", "Vite"],
+      "github": "https://github.com/shubhuu9893/dipex-hacksence",
       "live": null,
       "metrics": []
     },
@@ -254,7 +362,14 @@
       "category": "team",
       "name": "Smart Agri",
       "eyebrow": "Team project",
+      "summary": "Digital tools and information for farmers.",
       "description": "A digital agriculture platform designed to give farmers access to practical information and services.",
+      "issuesResolved": [
+        "Makes practical agricultural information and services easier to access."
+      ],
+      "advantages": [
+        "Provides a digital entry point to farmer-focused resources."
+      ],
       "images": [
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
@@ -268,16 +383,26 @@
     {
       "id": "city-pulse",
       "category": "team",
-      "name": "City Pulse",
-      "eyebrow": "Team project",
-      "description": "Project details have not been provided yet.",
+      "name": "CityPulse",
+      "eyebrow": "Civic issue reporting & resolution platform",
+      "summary": "Report civic issues and track their resolution.",
+      "description": "A civic complaint platform where residents can report local issues with descriptions, photos, and location details, then track complaint status. Ward workers can manage assigned tasks, while ward and municipal dashboards provide city-wide complaint statistics and escalation tracking.",
+      "issuesResolved": [
+        "Gives residents a structured way to report local civic issues.",
+        "Makes complaint progress visible to users and staff.",
+        "Helps municipal teams monitor ward activity and overdue complaints."
+      ],
+      "advantages": [
+        "Connects citizen reporting with worker task management.",
+        "Provides ward-level and city-wide operational visibility."
+      ],
       "images": [
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
       ],
-      "tech": [],
-      "github": null,
+      "tech": ["Python", "FastAPI", "MongoDB", "JWT", "Geopy"],
+      "github": "https://github.com/swap1930/CityPulse",
       "live": null,
       "metrics": []
     },
@@ -285,47 +410,49 @@
       "id": "breach-before-it",
       "category": "team",
       "name": "Breach Before It",
-      "eyebrow": "Team project",
-      "description": "Project details have not been provided yet.",
+      "eyebrow": "Real-time intrusion detection & next-attack prediction",
+      "summary": "Detect live intrusions and predict the next attack.",
+      "description": "A live network-security dashboard that captures packets, derives CIC-IDS flow features, and uses an XGBoost model to classify current traffic as benign or an attack. An LSTM analyzes recent attack categories to predict the next likely attack.",
+      "issuesResolved": [
+        "Surfaces suspicious network traffic as it is captured.",
+        "Helps security teams anticipate likely follow-on attack categories."
+      ],
+      "advantages": [
+        "Combines live flow analysis with sequential attack prediction.",
+        "Shows current classifications and predicted next attacks."
+      ],
       "images": [
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
       ],
-      "tech": [],
-      "github": null,
+      "tech": ["Python", "Streamlit", "Scapy", "Npcap", "CIC-IDS", "XGBoost", "LSTM"],
+      "github": "https://github.com/Kshitij1349/BreachBeforeIt",
       "live": null,
       "metrics": []
-    },
-    {
-      "id": "hackmatrix",
-      "category": "team",
-      "name": "HackMatrix",
-      "eyebrow": "Team project",
-      "description": "A PCCOE hackathon project built with a React and TypeScript frontend.",
-      "images": [
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
-      ],
-      "tech": ["TypeScript", "React", "Tailwind CSS"],
-      "github": "https://github.com/swap1930/HackMatrix",
-      "live": null,
-      "metrics": [["GitHub", "0", "stars"], ["GitHub", "0", "forks"], ["Stack", "TypeScript", "primary language"]]
     },
     {
       "id": "neuday-ai",
       "category": "team",
       "name": "Neuday AI",
-      "eyebrow": "Team project",
-      "description": "Project details have not been provided yet.",
+      "eyebrow": "AI-powered conversational assistant",
+      "summary": "Chat with AI and retrieve educational information.",
+      "description": "An AI assistant with persistent conversations, document and image uploads, and OCR-based text extraction. Its tool-using language-model workflow can retrieve educational information such as college intake and seat-matrix data.",
+      "issuesResolved": [
+        "Extracts readable text from uploaded images and documents.",
+        "Makes educational intake and seat-matrix information searchable through chat."
+      ],
+      "advantages": [
+        "Maintains conversation history across topics.",
+        "Combines document processing with tool-assisted AI responses."
+      ],
       "images": [
         "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
         "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
       ],
-      "tech": [],
-      "github": null,
+      "tech": ["React", "TypeScript", "FastAPI", "Python", "LangChain", "LangGraph", "OpenAI", "MongoDB", "Qdrant", "Firebase"],
+      "github": "https://github.com/Arman-Shaikh58/NeuDayAi_Interns_Project",
       "live": null,
       "metrics": []
     }

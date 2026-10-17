@@ -23,7 +23,8 @@
   "submitLabels": {
     "idle": "Send Message",
     "sending": "Sending…",
-    "sent": "Message queued"
+    "sent": "Message sent",
+    "error": "Try Again"
   },
   "successMessage": "Thanks — I'll be in touch soon."
 }

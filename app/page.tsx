@@ -155,7 +155,7 @@ function ProjectCard({
           {project.eyebrow}
         </div>
         <h3>{project.name}</h3>
-        <p>{project.description}</p>
+        <p>{project.summary}</p>
         <div className="card-footer">
           <div className="tech-row">
             {project.tech.map((tech) => (
@@ -565,14 +565,37 @@ function ExperienceView({
 }
 
 function ContactView() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "sent" | "error"
+  >("idle");
   const submit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
     setStatus("sending");
-    await new Promise((resolve) => window.setTimeout(resolve, 650));
-    setStatus("sent");
-    form.reset();
+    const body = new URLSearchParams();
+    new FormData(form).forEach((value, key) => {
+      if (typeof value === "string") body.append(key, value);
+    });
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: body.toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Contact form submission failed: ${response.status}`);
+      }
+
+      setStatus("sent");
+      form.reset();
+    } catch (error) {
+      console.error("Unable to submit contact form.", error);
+      setStatus("error");
+    }
   };
   return (
     <section className="view-section contact-view">
@@ -610,7 +633,20 @@ function ContactView() {
           <span>GitHub profile</span>
         </a>
       </div>
-      <form className="contact-form" onSubmit={submit}>
+      <form
+        className="contact-form"
+        name="contact"
+        method="POST"
+        action="/"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        onSubmit={submit}
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <label className="contact-honeypot" aria-hidden="true">
+          Leave this field blank
+          <input name="bot-field" tabIndex={-1} autoComplete="off" />
+        </label>
         {contactData.fields.map((field) => (
           <label
             key={field.name}
@@ -643,6 +679,15 @@ function ContactView() {
           {status === "sent" && (
             <span className="form-success">{contactData.successMessage}</span>
           )}
+          {status === "error" && (
+            <span className="form-error" role="alert">
+              Message could not be sent. Please try again or email{" "}
+              <a href={`mailto:${contactData.profile.email}`}>
+                {contactData.profile.email}
+              </a>
+              .
+            </span>
+          )}
         </div>
       </form>
     </section>
@@ -669,26 +714,7 @@ function DetailView({
             {`${projectData.detail.caseStudyLabel} / ${String(position.index).padStart(2, "0")}`}
           </p>
           <h1>{project.name}</h1>
-          <p className="detail-description">{project.description}</p>
-          <div className="tech-row">
-            {project.tech.map((tech) => (
-              <span key={tech} className="tech-chip">
-                {tech}
-              </span>
-            ))}
-          </div>
-          <div className="detail-actions">
-            {project.github && (
-              <a
-                href={project.github}
-                className="primary-button"
-                target="_blank"
-                rel="noreferrer"
-              >
-                View source on GitHub <ExternalLink />
-              </a>
-            )}
-          </div>
+          <p className="detail-description">{project.description}          </p>
         </div>
         <div className="detail-image">
           <img
@@ -720,23 +746,59 @@ function DetailView({
           )}
         </div>
       </div>
-      {project.metrics.length > 0 && (
-        <div className="metrics-grid">
-          {project.metrics.map(([number, value, label]) => (
-            <div className="metric" key={`${number}-${label}`}>
-              <span>{number}</span>
-              <strong>{value}</strong>
-              <p>{label}</p>
+      <div className="detail-sections">
+        <section className="detail-section">
+          <h2>Tools &amp; Technologies</h2>
+          {project.tech.length > 0 ? (
+            <div className="tech-row">
+              {project.tech.map((tech) => (
+                <span key={tech} className="tech-chip">
+                  {tech}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
-      )}
-      <div className="detail-note">
-        <Sparkles />
-        <div>
-          <h3>{projectData.detail.noteTitle}</h3>
-          <p>{projectData.detail.noteDescription}</p>
-        </div>
+          ) : (
+            <p>Technology details have not been provided yet.</p>
+          )}
+        </section>
+        <section className="detail-section">
+          <h2>Issues Resolved</h2>
+          <ul>
+            {project.issuesResolved.map((issue) => (
+              <li key={issue}>{issue}</li>
+            ))}
+          </ul>
+        </section>
+        <section className="detail-section">
+          <h2>Advantages</h2>
+          <ul>
+            {project.advantages.map((advantage) => (
+              <li key={advantage}>{advantage}</li>
+            ))}
+          </ul>
+        </section>
+      </div>
+      <div className="detail-actions">
+        {project.live && (
+          <a
+            href={project.live}
+            className="primary-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live Preview <Globe2 />
+          </a>
+        )}
+        {project.github && (
+          <a
+            href={project.github}
+            className="primary-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub Repository <ExternalLink />
+          </a>
+        )}
       </div>
     </section>
   );
@@ -964,6 +1026,19 @@ export default function Page() {
           )}
         </section>
       </div>
+      <form
+        name="contact"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        hidden
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <input name="name" />
+        <input name="email" type="email" />
+        <input name="subject" />
+        <textarea name="message" />
+        <input name="bot-field" />
+      </form>
       <footer className="bottom-bar">
         <span>
           © {new Date().getFullYear()} {contactData.profile.name}

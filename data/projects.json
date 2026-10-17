@@ -56,9 +56,13 @@
       "eyebrow": "Automated file analysis & AI insights",
       "description": "A FastAPI-based data analysis system that turns uploaded files into interactive dashboards and pivot tables, with an AI chatbot for asking questions about processed datasets.",
       "images": [
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
+        "/projects/df1.png",
+        "/projects/df2.png",
+        "/projects/df3.png",
+        "/projects/df4.png",
+        "/projects/df5.png",
+        "/projects/df6.png",
+        "/projects/df7.png"
       ],
       "tech": ["FastAPI", "Cohere API", "Pandas", "NumPy", "scikit-learn"],
       "github": "https://github.com/swap1930/DataFlow",
@@ -72,9 +76,11 @@
       "eyebrow": "Medicine donation & accessibility platform",
       "description": "A platform for donating, listing, and finding affordable or free medicines, with an admin dashboard for managing medicines, requests, and organizational records.",
       "images": [
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
+        "/projects/med1.png",
+        "/projects/med2.png",
+        "/projects/med3.png",
+        "/projects/med4.png",
+        "/projects/med5.png"
       ],
       "tech": ["HTML", "CSS", "JavaScript", "Flask"],
       "github": "https://github.com/swap1930/medicycle-project",
@@ -88,9 +94,10 @@
       "eyebrow": "Ollama-powered AI assistant",
       "description": "A context-aware assistant powered by Gemma 2B and Mistral 7B through Ollama, combining retrieval-augmented generation with video and web scraping for automated information extraction.",
       "images": [
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+        "/projects/jv1.png",
+        "/projects/jv2.png",
+        "/projects/jv3.png",
+        "/projects/jv5.png"
       ],
       "tech": ["Ollama", "Gemma 2B", "Mistral 7B", "RAG", "LangChain"],
       "github": null,
@@ -104,9 +111,10 @@
       "eyebrow": "Livestock & crop market analysis",
       "description": "A real-time market analysis tool for livestock and crop markets, with predictive insights, interactive charts, live market data, and automated trend evaluation.",
       "images": [
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+        "/projects/mm1.png",
+        "/projects/mm2.png",
+        "/projects/mm3.png",
+        "/projects/mm4.png"
       ],
       "tech": ["Python", "Streamlit", "yfinance"],
       "github": null,

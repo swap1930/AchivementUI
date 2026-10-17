@@ -9,19 +9,20 @@
       "institution": "Pimpri Chinchwad College of Engineering, Pune",
       "qualification": "Bachelor of Engineering in Computer Engineering (in progress)",
       "years": "2023 — 2029",
+      "previewMessage": "Ongoing — currently pursuing this degree.",
       "certificateImage": "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=1200&q=85"
     },
     {
       "institution": "Government Polytechnic, Kolhapur",
       "qualification": "Diploma in Information Technology · 95.44%",
       "years": "2023 — 2026",
-      "certificateImage": "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=1200&q=85"
+      "certificateImage": "/experience/Education/Diploma.pdf"
     },
     {
       "institution": "Saraswati High School, Ichalkaranji",
       "qualification": "Secondary School Certificate · 95%",
       "years": "2022 — 2023",
-      "certificateImage": "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=1200&q=85"
+      "certificateImage": "/experience/Education/10th%20marksheet.jpg"
     }
   ],
   "roles": [
@@ -31,7 +32,7 @@
       "years": "6 months",
       "type": "Internship",
       "duration": "6 months",
-      "certificateImage": "https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&w=1200&q=85",
+      "certificateImage": "/experience/Internship_Certificate_SDudhane.jpg",
       "description": "Contributed to AI/ML and web development projects during a six-month internship, gaining applied experience across the development lifecycle.",
       "summary": "Worked across AI/ML and web development tasks, applying technical skills in a professional project environment."
     }

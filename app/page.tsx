@@ -19,6 +19,7 @@ import {
   CircleUserRound,
   Code2,
   ExternalLink,
+  FileText,
   Globe2,
   Mail,
   Menu,
@@ -462,7 +463,13 @@ function ExtraCurricularView() {
   );
 }
 
-function ExperienceView({ onImage }: { onImage: (image: string) => void }) {
+function ExperienceView({
+  onImage,
+  onMessage,
+}: {
+  onImage: (image: string) => void;
+  onMessage: (message: string) => void;
+}) {
   const roles = experienceData.roles;
   return (
     <section className="view-section">
@@ -521,15 +528,32 @@ function ExperienceView({ onImage }: { onImage: (image: string) => void }) {
                   <span className="experience-years">{item.years}</span>
                   <h3>{item.institution}</h3>
                 </div>
-                <button
-                  className="experience-image-button"
-                  type="button"
-                  aria-label={`Open ${item.institution} certificate`}
-                  title="Open certificate"
-                  onClick={() => onImage(item.certificateImage)}
-                >
-                  <ExternalLink />
-                </button>
+                {item.certificateImage.endsWith(".pdf") ? (
+                  <a
+                    className="experience-image-button"
+                    href={item.certificateImage}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${item.institution} certificate in a new tab`}
+                    title="Open certificate"
+                  >
+                    <ExternalLink />
+                  </a>
+                ) : (
+                  <button
+                    className="experience-image-button"
+                    type="button"
+                    aria-label={`Open ${item.institution} certificate`}
+                    title="Open certificate"
+                    onClick={() =>
+                      item.previewMessage
+                        ? onMessage(item.previewMessage)
+                        : onImage(item.certificateImage)
+                    }
+                  >
+                    <ExternalLink />
+                  </button>
+                )}
               </div>
               <p>{item.qualification}</p>
             </article>
@@ -724,6 +748,7 @@ export default function Page() {
     (typeof projects)[number] | null
   >(null);
   const [lightbox, setLightbox] = useState<string | null>(null);
+  const [lightboxMessage, setLightboxMessage] = useState<string | null>(null);
   const [dark, setDark] = useState(false);
   const [cursor, setCursor] = useState({ x: -100, y: -100 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -777,16 +802,15 @@ export default function Page() {
             <GithubIcon />
             <span>GitHub</span>
           </a>
-          <button
+          <a
             className="header-link"
-            onClick={() => {
-              setActiveTab("experience");
-              setSelectedProject(null);
-            }}
+            href="/Swapnil_Dudhane_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <BriefcaseBusiness />
-            <span>Experience</span>
-          </button>
+            <FileText />
+            <span>Resume</span>
+          </a>
           <button
             className="contact-button"
             onClick={() => {
@@ -882,16 +906,14 @@ export default function Page() {
                 <HiOutlineMail />
               </a>
             </div>
-            <button
+            <a
               className="portfolio-button"
-              onClick={() => {
-                setActiveTab("personal");
-                setSelectedProject(null);
-                if (isMobileSidebarOpen) setIsMobileSidebarOpen(false);
-              }}
+              href="https://swapnildudhane.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Globe2 /> View Portfolio
-            </button>
+            </a>
           </div>
         </aside>
         <nav className="mobile-tabs" aria-label="Portfolio sections">
@@ -927,7 +949,10 @@ export default function Page() {
           ) : activeTab === "mini" ? (
             <ProjectsView category="mini" onOpen={setSelectedProject} />
           ) : activeTab === "experience" ? (
-            <ExperienceView onImage={setLightbox} />
+            <ExperienceView
+              onImage={setLightbox}
+              onMessage={setLightboxMessage}
+            />
           ) : activeTab === "events" ? (
             <EventsView onImage={setLightbox} />
           ) : activeTab === "extra" ? (
@@ -946,21 +971,41 @@ export default function Page() {
         <span className="footer-line" />
         <span>Currently crafting thoughtful software</span>
       </footer>
-      {lightbox && (
+      {(lightbox || lightboxMessage) && (
         <div
           className="lightbox"
           role="dialog"
+          aria-modal="true"
           aria-label="Certificate preview"
-          onClick={() => setLightbox(null)}
+          onClick={() => {
+            setLightbox(null);
+            setLightboxMessage(null);
+          }}
         >
-          <button aria-label="Close preview" onClick={() => setLightbox(null)}>
+          <button
+            aria-label="Close preview"
+            onClick={() => {
+              setLightbox(null);
+              setLightboxMessage(null);
+            }}
+          >
             <X />
           </button>
-          <img
-            src={lightbox}
-            alt="Certificate preview"
-            onClick={(event) => event.stopPropagation()}
-          />
+          {lightboxMessage ? (
+            <div
+              className="lightbox-message"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <span>Education status</span>
+              <p>{lightboxMessage}</p>
+            </div>
+          ) : lightbox ? (
+            <img
+              src={lightbox}
+              alt="Certificate preview"
+              onClick={(event) => event.stopPropagation()}
+            />
+          ) : null}
         </div>
       )}
     </main>

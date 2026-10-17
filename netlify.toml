@@ -2,4 +2,4 @@
   # Run the package.json build script via npm so the build doesn't depend on a
   # global pnpm binary being on PATH (dependencies are still installed by pnpm).
   command = "npm run build"
-  publish = ".next"
+  publish = "out"

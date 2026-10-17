@@ -359,9 +359,15 @@ function Pagination({
 function EventsView({ onImage }: { onImage: (image: string) => void }) {
   const events = eventsData.items;
   const [page, setPage] = useState(1);
+  const [activeSection, setActiveSection] = useState<"events" | "lecture">(
+    "events",
+  );
+  const sectionEvents = events.filter(
+    (event) => event.section === activeSection,
+  );
   const pageSize = 3;
-  const pageCount = Math.ceil(events.length / pageSize);
-  const visible = events.slice((page - 1) * pageSize, page * pageSize);
+  const pageCount = Math.ceil(sectionEvents.length / pageSize);
+  const visible = sectionEvents.slice((page - 1) * pageSize, page * pageSize);
   return (
     <section className="view-section">
       <div className="section-heading">
@@ -373,14 +379,57 @@ function EventsView({ onImage }: { onImage: (image: string) => void }) {
           </p>
         </div>
       </div>
-      <div className="events-list">
+      <div className="section-tabs" role="tablist" aria-label="Event sections">
+        <button
+          id="events-tab"
+          type="button"
+          role="tab"
+          aria-selected={activeSection === "events"}
+          aria-controls="events-panel"
+          className={activeSection === "events" ? "active" : ""}
+          onClick={() => {
+            setActiveSection("events");
+            setPage(1);
+          }}
+        >
+          Events
+        </button>
+        <button
+          id="lecture-tab"
+          type="button"
+          role="tab"
+          aria-selected={activeSection === "lecture"}
+          aria-controls="events-panel"
+          className={activeSection === "lecture" ? "active" : ""}
+          onClick={() => {
+            setActiveSection("lecture");
+            setPage(1);
+          }}
+        >
+          Expert Lecture
+        </button>
+      </div>
+      <div
+        className="events-list"
+        id="events-panel"
+        role="tabpanel"
+        aria-labelledby={activeSection === "events" ? "events-tab" : "lecture-tab"}
+      >
         {visible.map((event) => (
-          <button
-            className="event-card"
-            key={event.name}
-            onClick={() => onImage(event.image)}
-          >
-            <img src={event.image} alt="" />
+          <article className="event-card" key={event.name}>
+            <div className="event-images">
+              {event.images.map((image, index) => (
+                <button
+                  className="event-image-button"
+                  type="button"
+                  key={image}
+                  aria-label={`Open ${event.name} photo ${index + 1}`}
+                  onClick={() => onImage(image)}
+                >
+                  <img src={image} alt={`${event.name} ${index + 1}`} />
+                </button>
+              ))}
+            </div>
             <div>
               <span className="event-index">
                 0{events.findIndex((item) => item.name === event.name) + 1}
@@ -388,8 +437,8 @@ function EventsView({ onImage }: { onImage: (image: string) => void }) {
               <h3>{event.name}</h3>
               <p>{event.detail}</p>
             </div>
-            <ExternalLink />
-          </button>
+            <ExternalLink aria-hidden="true" />
+          </article>
         ))}
       </div>
       {pageCount > 1 && (
@@ -450,8 +499,19 @@ function ExtraCurricularView() {
       </div>
       <div className="gallery-grid">
         {activities.map((activity) => (
-          <figure className="gallery-item" key={activity.title}>
-            <img src={activity.image} alt="" />
+          <figure
+            className={`gallery-item${activity.images.length > 1 ? " has-multiple-images" : ""}`}
+            key={activity.title}
+          >
+            <div className="gallery-images">
+              {activity.images.map((image, index) => (
+                <img
+                  key={image}
+                  src={image}
+                  alt={`${activity.title} photo ${index + 1}`}
+                />
+              ))}
+            </div>
             <figcaption>
               <strong>{activity.title}</strong>
               <span>{activity.detail}</span>

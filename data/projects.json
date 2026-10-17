@@ -222,9 +222,7 @@
         "Supports hands-free interaction for common actions."
       ],
       "images": [
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
+        "/Mini_Projects/Jarvis.png"
       ],
       "tech": ["Python", "SpeechRecognition", "GPT API"],
       "github": "https://github.com/swap1930/JarvisAI",
@@ -247,9 +245,8 @@
         "Combines model predictions with a simple Streamlit interface."
       ],
       "images": [
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
+        "/Mini_Projects/comment_cleaner/cc1.png",
+        "/Mini_Projects/comment_cleaner/cc2.png"
       ],
       "tech": ["Python", "Streamlit", "Logistic regression"],
       "github": "https://github.com/swap1930/comment_cleanser",

@@ -171,10 +171,16 @@
       "issuesResolved": ["Project-specific details have not been provided yet."],
       "advantages": ["Project-specific details have not been provided yet."],
       "images": [
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
-      ],
+        "/projects/CollabML/cl1.png",
+         "/projects/CollabML/cl2.png",
+         "/projects/CollabML/cl3.png",
+         "/projects/CollabML/cl4.png",
+       "/projects/CollabML/cl5.png",
+        "/projects/CollabML/cl6.png",
+         "/projects/CollabML/cl7.png",
+          "/projects/CollabML/cl8.png"
+
+        ],
       "tech": [],
       "github": null,
       "live": null,
@@ -269,9 +275,11 @@
         "Uses SHAP to help explain model predictions."
       ],
       "images": [
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+          "/Mini_Projects/osl/osl1.png",
+           "/Mini_Projects/osl/osl2.png",
+           "/Mini_Projects/osl/osl3.png",
+            "/Mini_Projects/osl/osl4.png",
+             "/Mini_Projects/osl/osl5.png"
       ],
       "tech": ["Python", "Streamlit", "Random Forest", "SHAP"],
       "github": "https://github.com/swap1930/OSL_Project",
@@ -295,9 +303,12 @@
         "Uses account and financial details to personalize the flow."
       ],
       "images": [
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+         "/Mini_Projects/mad/mad1.png",
+            "/Mini_Projects/mad/mad2.png",
+              "/Mini_Projects/mad/mad3.png",
+     "/Mini_Projects/mad/mad4.png",
+          "/Mini_Projects/mad/mad5.png",
+               "/Mini_Projects/mad/mad6.png"
       ],
       "tech": ["Flutter", "Dart", "Firebase Authentication", "Cloud Firestore", "MongoDB", "Geolocation"],
       "github": "https://github.com/swap1930/MAD_SLA",
@@ -419,9 +430,12 @@
         "Shows current classifications and predicted next attacks."
       ],
       "images": [
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+        "TeamProject/BreachBeforeIt/sih1.png",
+        "TeamProject/BreachBeforeIt/sih2.png", 
+        "TeamProject/BreachBeforeIt/sih3.png",
+        "TeamProject/BreachBeforeIt/sih4.png"
+     
+
       ],
       "tech": ["Python", "Streamlit", "Scapy", "Npcap", "CIC-IDS", "XGBoost", "LSTM"],
       "github": "https://github.com/Kshitij1349/BreachBeforeIt",
@@ -431,7 +445,7 @@
     {
       "id": "neuday-ai",
       "category": "team",
-      "name": "Neuday AI",
+      "name": "Edubot",
       "eyebrow": "AI-powered conversational assistant",
       "summary": "Chat with AI and retrieve educational information.",
       "description": "An AI assistant with persistent conversations, document and image uploads, and OCR-based text extraction. Its tool-using language-model workflow can retrieve educational information such as college intake and seat-matrix data.",
@@ -444,9 +458,12 @@
         "Combines document processing with tool-assisted AI responses."
       ],
       "images": [
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
+              "TeamProject/Edubot/eb1.png",
+              "TeamProject/Edubot/eb2.png",
+                  "TeamProject/Edubot/eb3.png",
+                "TeamProject/Edubot/eb4.png",
+                   "TeamProject/Edubot/eb5.png"
+
       ],
       "tech": ["React", "TypeScript", "FastAPI", "Python", "LangChain", "LangGraph", "OpenAI", "MongoDB", "Qdrant", "Firebase"],
       "github": "https://github.com/Arman-Shaikh58/NeuDayAi_Interns_Project",

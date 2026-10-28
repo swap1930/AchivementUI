@@ -331,9 +331,7 @@
         "Offers a dedicated web interface for legal assistance."
       ],
       "images": [
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
+        "TeamProject/innohack.jpeg"
       ],
       "tech": ["React", "JavaScript", "Vite", "Tailwind CSS", "Firebase"],
       "github": "https://github.com/swap1930/Innohack2.0",
@@ -356,9 +354,7 @@
         "Presents confidence and priority alongside predicted techniques."
       ],
       "images": [
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85"
+        "TeamProject/dipex.jpeg"
       ],
       "tech": ["Python", "Scapy", "CIC-IDS", "XGBoost", "LSTM", "React", "TypeScript", "Vite"],
       "github": "https://github.com/shubhuu9893/dipex-hacksence",
@@ -379,9 +375,7 @@
         "Provides a digital entry point to farmer-focused resources."
       ],
       "images": [
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85"
+        "TeamProject/sa.jpeg"
       ],
       "tech": ["HTML", "CSS", "JavaScript"],
       "github": "https://github.com/swap1930/Smart-Agri",
@@ -405,9 +399,7 @@
         "Provides ward-level and city-wide operational visibility."
       ],
       "images": [
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=85",
-        "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85"
+        "TeamProject/citypulse.jpeg"
       ],
       "tech": ["Python", "FastAPI", "MongoDB", "JWT", "Geopy"],
       "github": "https://github.com/swap1930/CityPulse",

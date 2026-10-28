@@ -563,27 +563,32 @@ nav {
 .about-skills-card .skill-chips { margin-top: 14px; }
 .home-view .tech-chip { font-size: 10px; }
 .technology-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(68px, 1fr));
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 17px;
 }
 .technology-tile {
-  min-height: 64px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  min-height: 30px;
+  padding: 0 11px;
   border: 1px solid var(--line);
-  border-radius: 13px;
+  border-radius: 999px;
   background: color-mix(in srgb, var(--bg) 65%, transparent);
   color: var(--muted);
   text-align: center;
-  font-size: 12px;
-  font-weight: 600;
-  transition: transform .2s ease, border-color .2s ease;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
 }
-.technology-tile:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+.technology-tile:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+  background: var(--glass-hover);
+}
 .content-panel::-webkit-scrollbar,
 *::-webkit-scrollbar {
   display: none;
@@ -1030,10 +1035,10 @@ h1 {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform .35s ease;
 }
-.certificate-card:hover .certificate-image img { transform: scale(1.035); }
+.certificate-card:hover .certificate-image img { transform: scale(1.015); }
 .certificate-open-icon {
   position: absolute;
   right: 12px;
@@ -1819,8 +1824,8 @@ h1 {
    .home-portrait { width: min(83%, 300px); max-height: 320px; }
    .home-about { grid-template-columns: 1fr; gap: 24px; padding: 45px 3% 25px; }
    .home-copy h1 { font-size: clamp(32px, 9vw, 48px); }
-   .technology-grid { grid-template-columns: repeat(4, minmax(50px, 1fr)); }
-   .technology-tile { min-height: 58px; padding: 8px; font-size: 10px; }
+   .technology-grid { gap: 7px; }
+   .technology-tile { min-height: 29px; padding: 0 10px; font-size: 9px; }
    .about-intro h2 { font-size: 34px; }
    .section-heading {
      margin: 12px 0 24px;
@@ -1971,15 +1976,14 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 14px;
 }
 .social-icon {
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
-  flex: 1 1 0;
-  max-width: 48px;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
   border: 1px solid var(--line);
   border-radius: 9px;
   background: var(--glass);

@@ -10,7 +10,9 @@ import experienceData from "@/data/experience.json";
 import projectData from "@/data/projects.json";
 import tabData from "@/data/tabs.json";
 import {
+  ArrowDown,
   ArrowLeft,
+  House,
   BriefcaseBusiness,
   CalendarDays,
   Check,
@@ -27,6 +29,7 @@ import {
   Network,
   PanelTop,
   Phone,
+  Shapes,
   Search,
   Send,
   SlidersHorizontal,
@@ -453,6 +456,93 @@ function EventsView({ onImage }: { onImage: (image: string) => void }) {
   );
 }
 
+function HomeView({
+  onNavigate,
+}: {
+  onNavigate: (tab: string) => void;
+}) {
+  const groups = activitiesData.groups;
+  const featuredSkills = groups.flatMap((group) => group.items).slice(0, 10);
+
+  return (
+    <div className="home-view">
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="home-copy">
+          <p className="home-eyebrow"><span /> Portfolio · 2025</p>
+          <h1 id="home-title">{contactData.profile.name}</h1>
+          <p className="home-role">{contactData.profile.title}</p>
+          <p className="home-summary">
+            I am a passionate Full Stack and AI/ML developer, eager to build dynamic and scalable applications. As a fresher, I am learning modern frameworks, Python libraries, and databases to strengthen my skills. I have a deep interest in both frontend and backend development, exploring technologies that power intelligent systems. Additionally, I am focused on data science and deep learning, aiming to specialize in LLM development. My goal is to create AI-driven solutions that bring innovation and efficiency. I am excited to apply my knowledge and grow in this ever-evolving tech landscape.
+          </p>
+          <div className="home-actions">
+            <button className="home-primary" onClick={() => onNavigate("personal")}>
+              Explore my work <ArrowDown />
+            </button>
+            <button className="home-secondary" onClick={() => onNavigate("contact")}>
+              Get in touch <Mail />
+            </button>
+          </div>
+        </div>
+        <div className="home-portrait-wrap">
+          <div className="home-portrait-glow" />
+          <img
+            className="home-portrait"
+            src="/Final.png"
+            alt={`${contactData.profile.name} portrait`}
+          />
+
+        </div>
+
+      </section>
+
+      <section className="home-about" id="about" aria-labelledby="about-title">
+        <div className="about-intro">
+          <p className="section-kicker">A little about me</p>
+          <h2 id="about-title">Curious by nature.<br /><span>Builder by choice.</span></h2>
+          <p className="about-theory">
+            I’m a dedicated, self-motivated learner who enjoys turning ideas into practical software. With a strong foundation in frontend and backend development, I build thoughtful solutions and keep developing my technical and problem-solving skills. I value listening, adaptability, and collaboration, and bring those qualities to team projects. By balancing time management and continuous learning, I take initiative, support the people I work with, and grow through real-world challenges. Looking ahead, I’m focused on data science and LLM engineering, with the goal of contributing to the next generation of AI.
+          </p>
+          <button className="about-link" onClick={() => onNavigate("experience")}>
+            More about my journey <ArrowLeft />
+          </button>
+        </div>
+        <div className="about-details">
+          <article className="about-detail-card">
+            <span className="about-card-number">01 / FOCUS</span>
+            <h3>What I work on</h3>
+            <p>Full stack applications, AI/ML, deep learning, data science, and LLM-powered solutions.</p>
+          </article>
+          <article className="about-detail-card">
+            <span className="about-card-number">02 / EXPERIENCE</span>
+            <h3>Learning by doing</h3>
+            <p>Hands-on internship experience across AI/ML and web development, alongside ongoing computer engineering studies.</p>
+          </article>
+          <article className="about-detail-card about-skills-card">
+            <span className="about-card-number">03 / MY TOOLKIT</span>
+            <h3>Technologies I use</h3>
+            <div className="technology-grid">
+              {[
+                { name: "React", className: "react", icon: <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="4" fill="currentColor"/><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="currentColor" strokeWidth="3"/><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="currentColor" strokeWidth="3" transform="rotate(60 32 32)"/><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="currentColor" strokeWidth="3" transform="rotate(120 32 32)"/></svg> },
+                { name: "Tailwind CSS", className: "tailwind", icon: <svg viewBox="0 0 64 48" aria-hidden="true"><path fill="currentColor" d="M32 0C23.5 0 18.2 4.3 16 13c3.2-4.3 6.9-5.9 11-4.8 2.4.6 4.1 2.5 6 4.5C36 16 39.3 19 46 19c8.5 0 13.8-4.3 16-13-3.2 4.3-6.9 5.9-11 4.8-2.4-.6-4.1-2.5-6-4.5C42 3 38.7 0 32 0ZM16 29C7.5 29 2.2 33.3 0 42c3.2-4.3 6.9-5.9 11-4.8 2.4.6 4.1 2.5 6 4.5C20 45 23.3 48 30 48c8.5 0 13.8-4.3 16-13-3.2 4.3-6.9 5.9-11 4.8-2.4-.6-4.1-2.5-6-4.5C26 32 22.7 29 16 29Z" transform="translate(2 0) scale(.94)"/></svg> },
+                { name: "MongoDB", className: "mongodb", icon: <svg viewBox="0 0 48 64" aria-hidden="true"><path fill="currentColor" d="M24 2C16 14 7 22 8 36c.7 11 7.3 19 14 23l2 3 2-3c7-4 13.3-12 14-23C41 22 32 14 24 2Z"/><path d="M24 16v42" fill="none" stroke="rgba(0,0,0,.28)" strokeWidth="2"/></svg> },
+                { name: "Python", className: "python", icon: <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="#3776ab" d="M31 4c-14 0-13 6-13 6v10h14v3H12S4 22 4 37s7 15 7 15h8V41s0-8 8-8h14s8 0 8-8V12s1-8-18-8Zm-8 6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/><path fill="#ffd343" d="M33 60c14 0 13-6 13-6V44H32v-3h20s8 1 8-14-7-15-7-15h-8v11s0 8-8 8H23s-8 0-8 8v13s-1 8 18 8Zm8-6a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg> },
+                { name: "Hugging Face", className: "huggingface", icon: <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M8 29a5 5 0 0 1 7-7l5 5a18 18 0 0 1 24 0l5-5a5 5 0 1 1 7 7l-4 5a18 18 0 1 1-40 0l-4-5Zm16-2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm16 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-16 13c4 5 12 5 16 0" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fillOpacity=".22"/></svg> },
+                { name: "Scikit-learn", className: "sklearn", icon: <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="20" cy="34" r="12" fill="currentColor"/><circle cx="42" cy="24" r="10" fill="currentColor"/><path d="M29 43c7 4 17 1 19-6" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/><text x="31" y="50" fontSize="10" fontWeight="700" fill="currentColor">learn</text></svg> },
+                { name: "TensorFlow", className: "tensorflow", icon: <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M32 2 5 17v13l19-11v41h16V19l19 11V17L32 2Zm-8 29L8 41v14l16-9V31Zm16 0v15l16 9V41L40 31Z"/></svg> },
+              ].map((technology) => (
+                <div className={`technology-tile ${technology.className}`} key={technology.name} title={technology.name} aria-label={technology.name}>
+                  {technology.icon}
+                  <small>{technology.name}</small>
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 function SkillsView() {
   const groups = activitiesData.groups;
   return (
@@ -484,8 +574,27 @@ function SkillsView() {
   );
 }
 
-function ExtraCurricularView() {
+function ExtraCurricularView({
+  onImage,
+}: {
+  onImage: (image: string) => void;
+}) {
   const activities = activitiesData.extracurricular;
+  const [activeSection, setActiveSection] = useState<"certificates" | "gallery">("certificates");
+  const certificates = [
+    { name: "Techthon 2.0", organization: "AISSMS • 2025", img: "/certificates/c2.jpg" },
+    { name: "CodeRed", organization: "AIT • 2025", img: "/certificates/c4.jpg" },
+    { name: "React Components", organization: "SimpliLearn • 2025", img: "/certificates/c1.jpg" },
+    { name: "Linux Diary 5.0", organization: "Walchand • 2024", img: "/certificates/c3.jpg" },
+    { name: "Technova 2K24", organization: "Kolhapur • 2024", img: "/certificates/c6.jpg" },
+    { name: "Innovate", organization: "JJ Magdum • 2024", img: "/certificates/c5.jpg" },
+    { name: "Innohack 2.0", organization: "VIT Pune • 2025", img: "/certificates/c7.jpg" },
+    { name: "Fine Tune LLMs", organization: "Hugging Face • 2025", img: "/certificates/c8.png" },
+    { name: "Data Analysis", organization: "IBM • 2025", img: "/certificates/c10.png" },
+    { name: "Linux Diary 6.0", organization: "Walchand • 2025", img: "/certificates/c9.jpg" },
+    { name: "Machine Learning", organization: "Microsoft Learn • 2025", img: "/certificates/c11.png" },
+    { name: "Gen AI", organization: "Microsoft Learn • 2025", img: "/certificates/c12.png" },
+  ];
   return (
     <section className="view-section">
       <div className="section-heading">
@@ -497,28 +606,85 @@ function ExtraCurricularView() {
           </p>
         </div>
       </div>
-      <div className="gallery-grid">
-        {activities.map((activity) => (
-          <figure
-            className={`gallery-item${activity.images.length > 1 ? " has-multiple-images" : ""}`}
-            key={activity.title}
-          >
-            <div className="gallery-images">
-              {activity.images.map((image, index) => (
-                <img
-                  key={image}
-                  src={image}
-                  alt={`${activity.title} photo ${index + 1}`}
-                />
-              ))}
-            </div>
-            <figcaption>
-              <strong>{activity.title}</strong>
-              <span>{activity.detail}</span>
-            </figcaption>
-          </figure>
-        ))}
+      <div className="section-tabs" role="tablist" aria-label="Extra-curricular sections">
+        <button
+          id="activities-certificates-tab"
+          type="button"
+          role="tab"
+          aria-selected={activeSection === "certificates"}
+          aria-controls="activities-panel"
+          className={activeSection === "certificates" ? "active" : ""}
+          onClick={() => setActiveSection("certificates")}
+        >
+          Certificates
+        </button>
+        <button
+          id="activities-gallery-tab"
+          type="button"
+          role="tab"
+          aria-selected={activeSection === "gallery"}
+          aria-controls="activities-panel"
+          className={activeSection === "gallery" ? "active" : ""}
+          onClick={() => setActiveSection("gallery")}
+        >
+          Gallery
+        </button>
       </div>
+      {activeSection === "certificates" ? (
+        <div
+          className="gallery-grid certificate-gallery"
+          id="activities-panel"
+          role="tabpanel"
+          aria-labelledby="activities-certificates-tab"
+        >
+          {certificates.map((certificate) => (
+            <button
+              className="certificate-card"
+              key={certificate.img}
+              type="button"
+              aria-label={`Open ${certificate.name} certificate`}
+              onClick={() => onImage(certificate.img)}
+            >
+              <span className="certificate-image">
+                <img src={certificate.img} alt={`${certificate.name} certificate`} />
+                <span className="certificate-open-icon" aria-hidden="true"><ExternalLink /></span>
+              </span>
+              <span className="certificate-card-info">
+                <strong>{certificate.name}</strong>
+                <span>{certificate.organization}</span>
+              </span>
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div
+          className="gallery-grid"
+          id="activities-panel"
+          role="tabpanel"
+          aria-labelledby="activities-gallery-tab"
+        >
+          {activities.map((activity) => (
+            <figure
+              className={`gallery-item${activity.images.length > 1 ? " has-multiple-images" : ""}`}
+              key={activity.title}
+            >
+              <div className="gallery-images">
+                {activity.images.map((image, index) => (
+                  <img
+                    key={image}
+                    src={image}
+                    alt={`${activity.title} photo ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <figcaption>
+                <strong>{activity.title}</strong>
+                <span>{activity.detail}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
@@ -862,7 +1028,7 @@ function DetailView({
 }
 
 export default function Page() {
-  const [activeTab, setActiveTab] = useState("personal");
+  const [activeTab, setActiveTab] = useState("home");
   const [selectedProject, setSelectedProject] = useState<
     (typeof projects)[number] | null
   >(null);
@@ -940,6 +1106,7 @@ export default function Page() {
             <Mail /> Contact
           </button>
         </div>
+
         <button
           className="mobile-menu"
           type="button"
@@ -971,6 +1138,18 @@ export default function Page() {
               <small>Selected sections</small>
             </div>
             <nav aria-label="Portfolio sections">
+              <button
+                className={activeTab === "home" ? "nav-tab active" : "nav-tab"}
+                onClick={() => {
+                  setActiveTab("home");
+                  setSelectedProject(null);
+                  if (isMobileSidebarOpen) setIsMobileSidebarOpen(false);
+                }}
+              >
+                <House />
+                <span>Home</span>
+                {activeTab === "home" && <span className="tab-indicator" />}
+              </button>
               {tabs.map(({ id, label, icon: Icon }) => (
                 <button
                   key={id}
@@ -1025,17 +1204,21 @@ export default function Page() {
                 <HiOutlineMail />
               </a>
             </div>
-            <a
-              className="portfolio-button"
-              href="https://swapnildudhane.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Globe2 /> View Portfolio
-            </a>
+
           </div>
         </aside>
         <nav className="mobile-tabs" aria-label="Portfolio sections">
+          <button
+            type="button"
+            className={activeTab === "home" ? "active" : ""}
+            aria-current={activeTab === "home" ? "page" : undefined}
+            onClick={() => {
+              setActiveTab("home");
+              setSelectedProject(null);
+            }}
+          >
+            Home
+          </button>
           {tabs.map(({ id, label }) => (
             <button
               key={id}
@@ -1061,6 +1244,8 @@ export default function Page() {
               project={selectedProject}
               onBack={() => setSelectedProject(null)}
             />
+          ) : activeTab === "home" ? (
+            <HomeView onNavigate={setActiveTab} />
           ) : activeTab === "personal" ? (
             <ProjectsView onOpen={setSelectedProject} />
           ) : activeTab === "team" ? (
@@ -1075,7 +1260,7 @@ export default function Page() {
           ) : activeTab === "events" ? (
             <EventsView onImage={setLightbox} />
           ) : activeTab === "extra" ? (
-            <ExtraCurricularView />
+            <ExtraCurricularView onImage={setLightbox} />
           ) : activeTab === "contact" ? (
             <ContactView />
           ) : (

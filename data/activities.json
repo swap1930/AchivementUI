@@ -9,11 +9,13 @@
     {
       "title": "AIT Presentation",
       "detail": "AIT presentation",
+
       "images": ["/Extra_Curricular/AIT1.jpeg", "/Extra_Curricular/AIT2.jpeg"]
     },
     {
       "title": "Techthon Participation",
       "detail": "Techthon participation",
+
       "images": ["/Extra_Curricular/TechthonParticipation.jpeg"]
     }
   ],

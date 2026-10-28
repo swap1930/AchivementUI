@@ -468,7 +468,7 @@ function HomeView({
     <div className="home-view">
       <section className="home-hero" aria-labelledby="home-title">
         <div className="home-copy">
-          <p className="home-eyebrow"><span /> Portfolio · 2025</p>
+          <p className="home-eyebrow"><span /> Portfolio</p>
           <h1 id="home-title">{contactData.profile.name}</h1>
           <p className="home-role">{contactData.profile.title}</p>
           <p className="home-summary">
@@ -522,17 +522,16 @@ function HomeView({
             <h3>Technologies I use</h3>
             <div className="technology-grid">
               {[
-                { name: "React", className: "react", icon: <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="4" fill="currentColor"/><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="currentColor" strokeWidth="3"/><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="currentColor" strokeWidth="3" transform="rotate(60 32 32)"/><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="currentColor" strokeWidth="3" transform="rotate(120 32 32)"/></svg> },
-                { name: "Tailwind CSS", className: "tailwind", icon: <svg viewBox="0 0 64 48" aria-hidden="true"><path fill="currentColor" d="M32 0C23.5 0 18.2 4.3 16 13c3.2-4.3 6.9-5.9 11-4.8 2.4.6 4.1 2.5 6 4.5C36 16 39.3 19 46 19c8.5 0 13.8-4.3 16-13-3.2 4.3-6.9 5.9-11 4.8-2.4-.6-4.1-2.5-6-4.5C42 3 38.7 0 32 0ZM16 29C7.5 29 2.2 33.3 0 42c3.2-4.3 6.9-5.9 11-4.8 2.4.6 4.1 2.5 6 4.5C20 45 23.3 48 30 48c8.5 0 13.8-4.3 16-13-3.2 4.3-6.9 5.9-11 4.8-2.4-.6-4.1-2.5-6-4.5C26 32 22.7 29 16 29Z" transform="translate(2 0) scale(.94)"/></svg> },
-                { name: "MongoDB", className: "mongodb", icon: <svg viewBox="0 0 48 64" aria-hidden="true"><path fill="currentColor" d="M24 2C16 14 7 22 8 36c.7 11 7.3 19 14 23l2 3 2-3c7-4 13.3-12 14-23C41 22 32 14 24 2Z"/><path d="M24 16v42" fill="none" stroke="rgba(0,0,0,.28)" strokeWidth="2"/></svg> },
-                { name: "Python", className: "python", icon: <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="#3776ab" d="M31 4c-14 0-13 6-13 6v10h14v3H12S4 22 4 37s7 15 7 15h8V41s0-8 8-8h14s8 0 8-8V12s1-8-18-8Zm-8 6a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/><path fill="#ffd343" d="M33 60c14 0 13-6 13-6V44H32v-3h20s8 1 8-14-7-15-7-15h-8v11s0 8-8 8H23s-8 0-8 8v13s-1 8 18 8Zm8-6a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg> },
-                { name: "Hugging Face", className: "huggingface", icon: <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M8 29a5 5 0 0 1 7-7l5 5a18 18 0 0 1 24 0l5-5a5 5 0 1 1 7 7l-4 5a18 18 0 1 1-40 0l-4-5Zm16-2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm16 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-16 13c4 5 12 5 16 0" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fillOpacity=".22"/></svg> },
-                { name: "Scikit-learn", className: "sklearn", icon: <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="20" cy="34" r="12" fill="currentColor"/><circle cx="42" cy="24" r="10" fill="currentColor"/><path d="M29 43c7 4 17 1 19-6" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/><text x="31" y="50" fontSize="10" fontWeight="700" fill="currentColor">learn</text></svg> },
-                { name: "TensorFlow", className: "tensorflow", icon: <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M32 2 5 17v13l19-11v41h16V19l19 11V17L32 2Zm-8 29L8 41v14l16-9V31Zm16 0v15l16 9V41L40 31Z"/></svg> },
+                { name: "React" },
+                { name: "Tailwind CSS" },
+                { name: "MongoDB" },
+                { name: "Python" },
+                { name: "Hugging Face" },
+                { name: "Scikit-learn" },
+                { name: "TensorFlow" },
               ].map((technology) => (
-                <div className={`technology-tile ${technology.className}`} key={technology.name} title={technology.name} aria-label={technology.name}>
-                  {technology.icon}
-                  <small>{technology.name}</small>
+                <div className="technology-tile" key={technology.name}>
+                  <span>{technology.name}</span>
                 </div>
               ))}
             </div>
@@ -581,6 +580,7 @@ function ExtraCurricularView({
 }) {
   const activities = activitiesData.extracurricular;
   const [activeSection, setActiveSection] = useState<"certificates" | "gallery">("certificates");
+  const [certificatePage, setCertificatePage] = useState(1);
   const certificates = [
     { name: "Techthon 2.0", organization: "AISSMS • 2025", img: "/certificates/c2.jpg" },
     { name: "CodeRed", organization: "AIT • 2025", img: "/certificates/c4.jpg" },
@@ -595,6 +595,12 @@ function ExtraCurricularView({
     { name: "Machine Learning", organization: "Microsoft Learn • 2025", img: "/certificates/c11.png" },
     { name: "Gen AI", organization: "Microsoft Learn • 2025", img: "/certificates/c12.png" },
   ];
+  const certificatesPerPage = 4;
+  const certificatePageCount = Math.ceil(certificates.length / certificatesPerPage);
+  const visibleCertificates = certificates.slice(
+    (certificatePage - 1) * certificatesPerPage,
+    certificatePage * certificatesPerPage,
+  );
   return (
     <section className="view-section">
       <div className="section-heading">
@@ -637,7 +643,7 @@ function ExtraCurricularView({
           role="tabpanel"
           aria-labelledby="activities-certificates-tab"
         >
-          {certificates.map((certificate) => (
+          {visibleCertificates.map((certificate) => (
             <button
               className="certificate-card"
               key={certificate.img}
@@ -684,6 +690,40 @@ function ExtraCurricularView({
             </figure>
           ))}
         </div>
+      )}
+      {activeSection === "certificates" && certificatePageCount > 1 && (
+        <nav className="pagination certificate-pagination" aria-label="Certificate pages">
+          <button
+            type="button"
+            className="page-step"
+            disabled={certificatePage === 1}
+            onClick={() => setCertificatePage((page) => Math.max(1, page - 1))}
+          >
+            <ChevronLeft /> Previous
+          </button>
+          <div className="certificate-page-numbers" aria-label="Choose certificate page">
+            {Array.from({ length: certificatePageCount }, (_, index) => index + 1).map((page) => (
+              <button
+                type="button"
+                key={page}
+                className={`page-number${certificatePage === page ? " active" : ""}`}
+                aria-label={`Go to certificate page ${page}`}
+                aria-current={certificatePage === page ? "page" : undefined}
+                onClick={() => setCertificatePage(page)}
+              >
+                {String(page).padStart(2, "0")}
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            className="page-step"
+            disabled={certificatePage === certificatePageCount}
+            onClick={() => setCertificatePage((page) => Math.min(certificatePageCount, page + 1))}
+          >
+            Next <ChevronRight />
+          </button>
+        </nav>
       )}
     </section>
   );
@@ -1078,6 +1118,15 @@ export default function Page() {
           >
             {dark ? <Sun /> : <Moon />}
           </button>
+          <a
+            className="header-link"
+            href={contactData.profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaLinkedinIn />
+            <span>LinkedIn</span>
+          </a>
           <a
             className="header-link"
             href={contactData.profile.github}

@@ -436,12 +436,18 @@ nav {
   line-height: .99;
 }
 .home-role {
-  margin: 0 0 24px;
   width: fit-content;
-  color: var(--text);
+  margin: 0 0 24px;
+  color: #dba2da;
+  background: linear-gradient(90deg, #f0a6ca 0%, #a778df 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: clamp(20px, 2.3vw, 32px);
   font-weight: 550;
   letter-spacing: -.045em;
+}
+.light .home-role {
+  background-image: linear-gradient(90deg, #cf4c91 0%, #7541bd 100%);
 }
 .home-summary {
   max-width: 100%;
@@ -563,27 +569,21 @@ nav {
   margin-top: 17px;
 }
 .technology-tile {
-  min-height: 88px;
+  min-height: 64px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  padding: 12px;
   border: 1px solid var(--line);
   border-radius: 13px;
   background: color-mix(in srgb, var(--bg) 65%, transparent);
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
   transition: transform .2s ease, border-color .2s ease;
 }
 .technology-tile:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
-.technology-tile > svg { width: 42px; height: 42px; }
-.technology-tile small { color: var(--muted); font-size: 9px; text-align: center; }
-.technology-tile.react > svg { color: #61dafb; }
-.technology-tile.tailwind > svg { width: 48px; color: #06b6d4; }
-.technology-tile.mongodb > svg { color: #47a248; }
-.technology-tile.python > svg { width: 40px; }
-.technology-tile.huggingface > svg { color: #ffd21e; }
-.technology-tile.sklearn > svg { color: #f8991d; }
-.technology-tile.tensorflow > svg { color: #ff6f00; }
 .content-panel::-webkit-scrollbar,
 *::-webkit-scrollbar {
   display: none;
@@ -1055,6 +1055,46 @@ h1 {
 }
 .certificate-card-info strong { font-size: 16px; }
 .certificate-card-info > span { color: var(--muted); font-size: 13px; }
+.certificate-pagination {
+  justify-content: center;
+  gap: 8px;
+  margin-top: 22px;
+}
+.certificate-pagination .page-step {
+  min-height: 42px;
+  padding: 0 13px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--glass);
+}
+.certificate-pagination .page-step:disabled {
+  opacity: .45;
+}
+.certificate-page-numbers {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.certificate-pagination .page-number {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--muted);
+  background: transparent;
+  font-size: 12px;
+}
+.certificate-pagination .page-number.active {
+  border-color: transparent;
+  color: #111;
+  background: #f2f2f2;
+}
+.light .certificate-pagination .page-number.active {
+  color: #fff;
+  background: #111;
+}
 .gallery-item {
   break-inside: avoid;
   position: relative;
@@ -1702,7 +1742,7 @@ h1 {
    .home-portrait { max-height: 390px; }
    .home-about { padding: 54px 4% 30px; gap: 28px; }
    .technology-grid { grid-template-columns: repeat(4, minmax(56px, 1fr)); gap: 7px; }
-   .technology-tile { min-height: 76px; }
+   .technology-tile { min-height: 64px; font-size: 11px; }
    .project-grid {
      grid-template-columns: 1fr;
      max-width: 620px;
@@ -1780,10 +1820,7 @@ h1 {
    .home-about { grid-template-columns: 1fr; gap: 24px; padding: 45px 3% 25px; }
    .home-copy h1 { font-size: clamp(32px, 9vw, 48px); }
    .technology-grid { grid-template-columns: repeat(4, minmax(50px, 1fr)); }
-   .technology-tile { min-height: 70px; }
-   .technology-tile > svg { width: 34px; height: 34px; }
-   .technology-tile.tailwind > svg { width: 40px; }
-   .technology-tile small { font-size: 8px; }
+   .technology-tile { min-height: 58px; padding: 8px; font-size: 10px; }
    .about-intro h2 { font-size: 34px; }
    .section-heading {
      margin: 12px 0 24px;
@@ -1934,13 +1971,15 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 18px;
 }
 .social-icon {
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
+  flex: 1 1 0;
+  max-width: 48px;
   border: 1px solid var(--line);
   border-radius: 9px;
   background: var(--glass);
@@ -1993,7 +2032,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 12px;
+  gap: 10px;
 }
 .sidebar .nav-tab {
   flex: none;

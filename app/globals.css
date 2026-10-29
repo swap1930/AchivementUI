@@ -747,6 +747,7 @@ h1 {
 .project-card {
   overflow: hidden;
   border: 1px solid var(--line);
+  cursor: pointer;
   border-radius: 18px;
   background: var(--glass);
   backdrop-filter: blur(18px);
@@ -1886,6 +1887,13 @@ h1 {
      background: var(--bg-2);
      backdrop-filter: none;
      box-shadow: 12px 0 30px rgba(0, 0, 0, 0.12);
+   }
+   .sidebar nav {
+     gap: 4px;
+   }
+   .sidebar-social {
+     padding-top: 8px;
+     gap: 8px;
    }
    .mobile-tabs {
      display: flex;

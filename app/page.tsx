@@ -118,7 +118,22 @@ function ProjectCard({
   }, [project.images.length]);
 
   return (
-    <article className="project-card">
+    <article
+      className="project-card"
+      onClick={(event) => {
+        if (!(event.target instanceof Element) || !event.target.closest("a, button")) {
+          onOpen();
+        }
+      }}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" && event.target === event.currentTarget) {
+          onOpen();
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label={`Open ${project.name} details`}
+    >
       <div className="project-cover">
         <img src={project.images[imageIndex]} alt={`${project.name} preview`} />
         <div className="cover-gradient" />
@@ -174,18 +189,9 @@ function ProjectCard({
                 href={project.github}
                 target="_blank"
                 rel="noreferrer"
+                onClick={(event) => event.stopPropagation()}
               >
                 <GithubIcon /> GitHub
-              </a>
-            )}
-            {project.live && (
-              <a
-                className="project-link"
-                href={project.live}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ExternalLink /> Live
               </a>
             )}
             <GlassButton
@@ -977,7 +983,29 @@ function DetailView({
             {`${projectData.detail.caseStudyLabel} / ${String(position.index).padStart(2, "0")}`}
           </p>
           <h1>{project.name}</h1>
-          <p className="detail-description">{project.description}          </p>
+          <p className="detail-description">{project.description}</p>
+          <div className="detail-actions">
+            {project.github && (
+              <a
+                href={project.github}
+                className="primary-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub Repository <ExternalLink />
+              </a>
+            )}
+            {project.live && (
+              <a
+                href={project.live}
+                className="primary-button"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live Website <Globe2 />
+              </a>
+            )}
+          </div>
         </div>
         <div className="detail-image">
           <img
@@ -1041,28 +1069,7 @@ function DetailView({
           </ul>
         </section>
       </div>
-      <div className="detail-actions">
-        {project.live && (
-          <a
-            href={project.live}
-            className="primary-button"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Live Preview <Globe2 />
-          </a>
-        )}
-        {project.github && (
-          <a
-            href={project.github}
-            className="primary-button"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub Repository <ExternalLink />
-          </a>
-        )}
-      </div>
+
     </section>
   );
 }

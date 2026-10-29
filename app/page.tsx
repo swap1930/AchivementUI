@@ -194,6 +194,17 @@ function ProjectCard({
                 <GithubIcon /> GitHub
               </a>
             )}
+            {project.live && (
+              <a
+                className="project-link"
+                href={project.live}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <ExternalLink /> Live
+              </a>
+            )}
             <GlassButton
               label={`View ${project.name} details`}
               onClick={onOpen}

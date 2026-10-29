@@ -1197,7 +1197,7 @@ export default function Page() {
       <div className="app-shell" id="top">
         <aside
           id="portfolio-sidebar"
-          className={`sidebar ${isMobileSidebarOpen ? "mobile-open" : ""}`}
+          className={`sidebar ${isMobileSidebarOpen ? "mobile-open" : ""} ${isMobileSidebarOpen ? "mobile-sidebar-open" : ""}`}
         >
           <div>
             <div className="sidebar-heading">

@@ -1886,28 +1886,35 @@ h1 {
      display: flex;
      flex-direction: column;
      justify-content: flex-start;
-     gap: 10px;
+     gap: 0;
+     overflow-y: auto;
+     padding-bottom: 80px;
      background: var(--bg-2);
      backdrop-filter: none;
      box-shadow: 12px 0 30px rgba(0, 0, 0, 0.12);
    }
-   .sidebar > div:first-child {
+   .sidebar.mobile-sidebar-open {
+     justify-content: flex-start;
+     gap: 20px;
+   }
+   .sidebar.mobile-sidebar-open > div:first-child {
      flex: 0 0 auto;
      display: block;
      min-height: auto;
      padding-bottom: 0;
    }
-   .sidebar > div:first-child > nav {
-     gap: 4px;
-   }
    .sidebar nav {
-     gap: 4px;
+     gap: 8px;
    }
    .sidebar-social {
      flex: 0 0 auto;
      margin-top: 0;
-     padding: 0 10px 6px;
+     padding: 0 10px 0;
      gap: 8px;
+   }
+   .sidebar-social .social-icons {
+     justify-content: flex-start;
+     gap: 12px;
    }
    .mobile-tabs {
      display: flex;
